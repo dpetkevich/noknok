@@ -6,7 +6,7 @@
 
 <ion-header-bar class='bar-assertive' >
  <div class="buttons">
-    <button class="button button-icon icon ion-camera" style='color:white;'></button>
+    <a class="button button-icon icon ion-camera" href='#/capture' style='color:white;'></a>
   </div>
    <h1 class="title" style='font-size:26pt;color:white'>nok-nok</h1>
   <div class="buttons">
@@ -16,11 +16,35 @@
 
 
 <ion-content has-header="true" >
-  <list>
+  <ion-list>
+    
+    <!--
+      <ion-item class="item item-avatar" href="#" ng-repeat='thread in threads'>
+          <img ng-if="thread.read==false && thread.sender_known==false" src="img/cat.png">
+          <img ng-if="thread.read==false && thread.sender_known==true" src="img/happyCat.png">
 
-    <a class="item item-avatar" href="#">
-        <img src="img/cat.png">
-       <h2>Wenzel Juice</h2>
+        <h2>{{thread.sender}}
+        <span ng-if="thread.read==false && thread.sender_known==false && incoming==true" class='guessTextStatus'>sends a nok</span>
+        <span ng-if="thread.read==false && thread.sender_known==false && incoming==true" class='guessTextStatus'>is guessing</span>
+        <span ng-if="thread.sender_known==true && incoming==false" class='guessTextStatus'>found you out</span>
+        <span ng-if="thread.sender_known==true && incoming==true" class='guessTextStatus'>was {{thread.sender_codename}}</span>
+        <span ng-if="thread.read==true && thread.sender_known==false" class='guessTextStatus'>guessed wrong</span>
+
+        </h2>
+
+        <p ng-if="thread.read==false && thread.sender_known==false">Hold to View</p>
+        <p ng-if="thread.read==false && thread.sender_known==true">Hold to View</p>
+        <p ng-if="thread.read==true && thread.sender_known==false">Tap to Send Another Clue</p>
+        <p ng-if="thread.read==true && thread.sender_known==true">Tap to Send Another Message</p>
+
+      </ion-item>
+  -->
+  
+
+
+    <a class="item item-avatar" href="#/guess">
+       <img src="img/cat.png" style='color:red;'>
+       <h2>Wenzel Juice<span class='guessTextStatus'>sends a nok</span></h2>
          <p>Hold to View</p>
      </a>
      <a class="item item-avatar" href="#">
@@ -48,7 +72,7 @@
        <h2>Pat Blute<span class='guessTextStatus' >was Strongbad</span></h2>
          <p>Tap to Send a Message</p>
      </a>
-  </list>
+  </ion-list>
 </ion-content>
 
 

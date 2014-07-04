@@ -21,16 +21,38 @@ angular.module('starter', ['ionic'])
 })
 */
 
-var app = angular.module('noknok', ['ionic',"ui.router"])
 
-app.config(function($stateProvider,$urlRouterProvider) {
 
-  $urlRouterProvider.otherwise("/")
+angular.module('noknok', ['ionic',"ui.router",'noknok.controllers'])
+
+.config(function($stateProvider,$urlRouterProvider) {
+
+  $urlRouterProvider.otherwise("/inbox")
 
   $stateProvider
   .state("inbox", {
-    url: "/",
-    templateUrl: "partials/inbox.html"
+    url: "/inbox",
+    templateUrl: "partials/inbox.html",
+    controller: 'inboxController'
+  })
+
+  .state("capture", {
+    url: "/capture",
+    templateUrl: "partials/capture.html",
+    controller: 'captureController'
+  })
+
+  .state("guess", {
+    url: "/guess",
+    templateUrl: "partials/guess.html",
+    controller: 'guessController'
+  })
+
+
+  .state("sendTo", {
+    url: "/sendTo",
+    templateUrl: "partials/sendTo.html",
+    controller: 'sendToController'
   });
 
 //$urlRouterProvider.otherwise('inbox');
