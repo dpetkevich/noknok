@@ -21,13 +21,14 @@ angular.module('starter', ['ionic'])
 })
 */
 
+Parse.initialize("GrHnBRu3j0eOTwDH7JwncoQQQpTnAyBNqoQRZWVM", "nUmLuM9usXJi9pNjBaLnZESjeVL2GAz6gZDLMOgL");
 
 
 angular.module('noknok', ['ionic',"ui.router",'noknok.controllers'])
 
 .config(function($stateProvider,$urlRouterProvider) {
 
-  $urlRouterProvider.otherwise("/inbox")
+  $urlRouterProvider.otherwise("/signUp1")
 
   $stateProvider
   .state("inbox", {
@@ -48,11 +49,21 @@ angular.module('noknok', ['ionic',"ui.router",'noknok.controllers'])
     controller: 'guessController'
   })
 
+  .state("selectGuess", {
+    url: "/selectGuess",
+    templateUrl: "partials/selectGuess.html"
+  })
 
   .state("sendTo", {
     url: "/sendTo",
     templateUrl: "partials/sendTo.html",
     controller: 'sendToController'
+  })
+  // sign up views
+  .state("signUp1", {
+    url: "/signUp1",
+    templateUrl: "partials/signUp/signUp1.html",
+    controller: "signUp1Controller"
   });
 
 //$urlRouterProvider.otherwise('inbox');

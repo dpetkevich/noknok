@@ -54,19 +54,59 @@ angular.module('noknok.controllers', [])
 
 })
 
-.controller('guessController',function($scope){
+.controller('signUp1Controller',function($scope){
+
+	$scope.user={};
+	$scope.submitted = false;
+	$scope.signUp1Form={}
 
 
 
+    
 
-})
+	$scope.submit = function(form) {
+
+	$scope.emailInvalid = false;
+	$scope.passwordInvalid = false;
+	$scope.phoneInvalid = false;	
+		if (form.$valid) {
+		    alert('wazzow')
+			/*
+    		var user = new Parse.User();
+			user.set("username", $scope.user.email);
+			user.set("email", $scope.user.email);
+			user.set("password", $scope.user.password);
+			user.set("phone", $scope.user.phone);
+			 
+			 
+			user.signUp(null, {
+			  success: function(user) {
+			  	alert('signup worked')
+				  },
+			  error: function(user, error) {
+			    // Show the error message somewhere and let the user try again.
+			    //cover case when username is already taken
+			    alert("Error: " + error.code + " " + error.message);
+			  }
+			});
+			*/
+    	}
+    	if (!form.email.$valid) {
+      		$scope.emailInvalid = true;
+    	} 
+    	
+    	if (!form.password.$valid) {
+      		$scope.passwordInvalid = true;
+    	}  
+    	if( !form.phone.$valid) {
+      		$scope.phoneInvalid = true;
+
+    	};  
+    	
+    }
 
 
-
-
-
-
-;
+});
 
 
 
