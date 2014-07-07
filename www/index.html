@@ -9,24 +9,26 @@
     <link href="css/style.css" rel="stylesheet">
 
     <script src="//www.parsecdn.com/js/parse-1.2.18.min.js"></script>
-     <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
 
 
     <!-- Needed for Cordova/PhoneGap (will be a 404 during development) -->
     <script src="lib/ionic/js/ionic.js"></script>
     <script src="lib/ionic/js/angular/angular.js"></script>
-   <script src="lib/ionic/js/angular/angular-animate.js"></script>
-   <script src="lib/ionic/js/angular/angular-sanitize.js"></script>
-   <script src="lib/ionic/js/angular-ui/angular-ui-router.min.js"></script>
-   <script src="lib/ionic/js/ionic-angular.js"></script>
+    <script src="lib/ionic/js/angular/angular-animate.js"></script>
+    <script src="lib/ionic/js/angular/angular-sanitize.js"></script>
+    <script src="lib/ionic/js/angular-ui/angular-ui-router.min.js"></script>
+    <script src="lib/ionic/js/ionic-angular.js"></script>
+
+    <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
 
     <script src="js/app.js"></script>
+    <script src="js/routes.js"></script>
     <script src="js/controllers.js"></script>
 
 
   
   </head>
-  <body ng-app="noknok" animation="slide-left-right-ios7" >
+  <body ng-app="noknok" >
     <!-- 
       The nav bar that will be updated as we navigate between views
       Additional attributes set its look, nav-bar animation and icons
@@ -39,7 +41,7 @@
       Templates are in the /templates folder (but you could also
       have templates inline in this html file if you'd like).
     -->
-    <nav-view ui-view></nav-view>
+    <ion-nav-view ui-view animation="slide-left-right-ios7" ></ion-nav-view>
 
   </body>
 </html>

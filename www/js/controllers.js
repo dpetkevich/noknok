@@ -54,7 +54,7 @@ angular.module('noknok.controllers', [])
 
 })
 
-.controller('signUp1Controller',function($scope){
+.controller('signUp1Controller',function($scope,$state){
 
 	$scope.user={};
 	$scope.submitted = false;
@@ -70,8 +70,7 @@ angular.module('noknok.controllers', [])
 	$scope.passwordInvalid = false;
 	$scope.phoneInvalid = false;	
 		if (form.$valid) {
-		    alert('wazzow')
-			/*
+			
     		var user = new Parse.User();
 			user.set("username", $scope.user.email);
 			user.set("email", $scope.user.email);
@@ -82,6 +81,7 @@ angular.module('noknok.controllers', [])
 			user.signUp(null, {
 			  success: function(user) {
 			  	alert('signup worked')
+			  	$state.go('inbox') 
 				  },
 			  error: function(user, error) {
 			    // Show the error message somewhere and let the user try again.
@@ -89,7 +89,6 @@ angular.module('noknok.controllers', [])
 			    alert("Error: " + error.code + " " + error.message);
 			  }
 			});
-			*/
     	}
     	if (!form.email.$valid) {
       		$scope.emailInvalid = true;
@@ -100,10 +99,29 @@ angular.module('noknok.controllers', [])
     	}  
     	if( !form.phone.$valid) {
       		$scope.phoneInvalid = true;
-
-    	};  
-    	
+    	}; 
     }
+})
+
+.controller('loginController',function($scope,$state){
+	$scope.user={};
+
+	$scope.submit = function() {
+		Parse.User.logIn($scope.user.email, $scope.user.password, {
+  			success: function(user) {
+
+  				$state.go('inbox')
+ 		 	},
+  			error: function(user, error) {
+    			alert('invalid credentials')
+  			}
+		});
+
+
+
+
+	}
+  
 
 
 });
