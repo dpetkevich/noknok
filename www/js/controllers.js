@@ -83,7 +83,8 @@ angular.module('noknok.controllers', [])
 .controller('sendToController',function($scope){
 
 	function onSuccess(contacts) {
-    alert('Found ' + contacts.length + ' contacts.' + contacts[0].displayName);
+	    $scope.contacts=contacts
+	    $scope.$apply();
 	};
 
 	function onError(contactError) {
@@ -95,7 +96,7 @@ angular.module('noknok.controllers', [])
 
 	$scope.getContacts = function(){
 
-	var fields = [""];
+	var fields = ["displayName"];
 	var options = new ContactFindOptions();
 	options.filter="";          // empty search string returns all contacts
 	options.multiple=true;  
