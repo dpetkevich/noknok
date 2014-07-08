@@ -1,41 +1,37 @@
-<ion-header-bar class='bar-royal' >
- <div class="buttons">
-    <a class="button button-icon icon ion-chevron-left" href='#/capture' style='color:white;'></a>
-  </div>
-   <h1 class="title" style='font-size:26pt;color:white'>send to:</h1>
-  <div class="buttons">
-    <button class="button button-icon icon ion-levels" style='color:white;'></button>
-  </div>
-</ion-header-bar>
+<ion-view title='SendTo'>
+	<ion-header-bar class='bar-royal' >
+	 <div class="buttons">
+	    <a class="button button-icon icon ion-chevron-left" href='#/capture' style='color:white;'></a>
+	  </div>
+	   <h1 class="title" style='font-size:26pt;color:white'>send to</h1>
+	  <div class="buttons">
+	    <button class="button button-icon icon ion-levels" style='color:white;'></button>
+	  </div>
+	</ion-header-bar>
 
-<ion-content has-header="true" has-footer='true'>
-  <ion-list>
-  	<div class="item item-divider">
-			    Recents
-	</div>
-	  	<div class="item item-icon-right personRow" ng-init='!isActive' on-tap="isActive = !isActive" >
-		    	Daniel Petkevich
-		      	<i ng-class="{'icon ion-ios7-circle-filled': isActive, 'icon ion-ios7-circle-outline': !isActive}"></i>
+	<ion-content has-header="true" has-footer='true'>
+	  <ion-list>
+	  	<div class="item item-divider">
+				    Recents
 		</div>
-	<div class="item item-divider">
-	    A
-	</div>
-	    <div class="item item-icon-right personRow">
-		Aaron Davis
-	  	<i class="icon ion-ios7-circle-outline"></i>
-		</div>
-	<div class="item item-divider">
-	    B
-	</div>
-	 	<div class="item item-icon-right personRow">
-		Boris Yeltsin
-	  	<i class="icon ion-ios7-circle-outline"></i>
-		</div>
-  </ion-list>
- </ion-content>
+		  	<div class="item item-icon-right personRow" ng-init='!isActive' on-tap="isActive = !isActive" >
+			    	Daniel Petkevich
+			      	<i ng-class="{'icon ion-ios7-circle-filled': isActive, 'icon ion-ios7-circle-outline': !isActive}"></i>
+			</div>
+		    <div class="item item-icon-right personRow">
+			Aaron Davis
+		  	<i class="icon ion-ios7-circle-outline"></i>
+			</div>
+		 	<div class="item item-icon-right personRow">
+			Boris Yeltsin
+		  	<i class="icon ion-ios7-circle-outline"></i>
+			</div>
+	  </ion-list>
+	 </ion-content>
 
-<ion-footer-bar class='bar-royal'>
-  <div class="buttons pull-right">
-    <a class="button button-icon icon ion-arrow-right-a " style='color:white;' href='#/inbox'></a>
-  </div>
-</ion-footer-bar>
+	<ion-footer-bar class='bar-royal'>
+	  <div class="buttons pull-right">
+	    <a class="button button-icon icon ion-arrow-right-a " style='color:white;' href='#/inbox'></a>
+	  </div>
+	</ion-footer-bar>
+</ion-view>
