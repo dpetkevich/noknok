@@ -1,6 +1,6 @@
 angular.module('noknok.controllers', [])
 
-.controller('inboxController', function($scope,$state) {
+.controller('inboxController', function($scope,$state,$rootScope) {
 
   $scope.threads = [
     { sender:7136645896, recepient:2812362023, read:false, known:false, sentAs:'Wenzel Juice', senderName:'', recipientName:''},
@@ -11,12 +11,17 @@ angular.module('noknok.controllers', [])
     { sender:7136645896, recepient:2812362023, read:true, known:true, sentAs:"StrongBad", senderName:'Pat Blute', recipientName:'' },
 
    /*
+
+
+
+
+
     { sender: 'Paul Zamsky', recepient:'blank', read:false, sender_known:false, incoming:false  },
     { sender: 'Kevin Ho', recepient:'blank', read:false, sender_known:true, incoming:false  },
     { sender: 'Pat Blute', sender_codename:'Strongbad', recepient:'blank', read:false, sender_known:true, incoming:true  },
   */
   ];
-
+  $rootScope.data='';
 
 })
 
@@ -25,12 +30,14 @@ angular.module('noknok.controllers', [])
 
 	$scope.getPhoto = function() {
 		navigator.camera.getPicture(captureSuccess,captureError,
-			{  quality:100, allowEdit:false, destinationType: Camera.DestinationType.DATA_URL, targetWidth: 320, targetHeight: 1120 });	
+			{  quality:100, allowEdit:false, destinationType: Camera.DestinationType.DATA_URL });	
+			//targetWidth: 320, targetHeight: 1120
 	}
 
 	  function captureSuccess(imageData) {
 	        var image = document.getElementById('myImage');
 	        image.style.display = 'block';
+	        image.style.width = '320px'
 
 	        $rootScope.data=imageData
    		    $rootScope.imgSrc =  "data:image/jpeg;base64," + imageData;
@@ -46,23 +53,7 @@ angular.module('noknok.controllers', [])
 	    navigator.notification.alert(msg, null, 'Uh oh!');
 	}
 
-	$scope.sendTo = function(){
-
-			var parseFile = new Parse.File('photo.jpg', { base64: $rootScope.data });
-
-   		    parseFile.save().then(function() {
-			}, function(error) {
-				alert(error + 'not saved');
-			});
-
-			var image = new Parse.Object("Image");
-			image.set("user", Parse.User.current());
-			image.set("data", parseFile);
-			image.save();
-			$state.go('sendTo');
-			
-
-	}
+	
 	
 
 	document.addEventListener("deviceready", onDeviceReady, false);
@@ -70,7 +61,7 @@ angular.module('noknok.controllers', [])
 
 	function onDeviceReady() {
 
-		if ($rootScope.imgSrc==''){
+		if ($rootScope.data==''){
 			$scope.getPhoto()
 		}
 		
@@ -80,7 +71,8 @@ angular.module('noknok.controllers', [])
 
 })
 
-.controller('sendToController',function($scope){
+.controller('sendToController',function($scope,$filter,$rootScope,$state){
+
 
 	function onSuccess(contacts) {
 	    $scope.contacts=contacts
@@ -96,13 +88,74 @@ angular.module('noknok.controllers', [])
 
 	$scope.getContacts = function(){
 
-	var fields = ["displayName"];
+	var fields = ["displayName","phoneNumbers"];
 	var options = new ContactFindOptions();
 	options.filter="";          // empty search string returns all contacts
 	options.multiple=true;  
 	navigator.contacts.find(fields, onSuccess, onError, options);
 
 	}
+
+
+	$scope.selectedCount = 0;
+    $scope.selected = function(contact){
+    	
+    	if(contact.contactBox){
+    		$scope.selectedCount++;
+
+    	}
+    	else{
+    		$scope.selectedCount--;
+
+    	};
+      $scope.$apply();
+      
+    };
+
+    $scope.createThread = function(contacts){
+
+		var selectedContacts=$filter('filter')(contacts,{contactBox:true});
+		for(var i=0;i<selectedContacts.length;i++)
+		{	
+			var Thread = Parse.Object.extend("Thread");
+			var thread = new Thread();
+			
+			var image = new Parse.File('photo.jpg', { base64: $rootScope.data });
+
+   		    image.save().then(function() {
+   		    	alert('image saved')
+			}, function(error) {
+				alert(error + 'not saved');
+			});
+			
+			thread.set('sender',Parse.User.current())
+			thread.set('recipient', parseInt(selectedContacts[i].phoneNumbers[0].value))
+			thread.set('read',false)
+			thread.set('known',false)
+			thread.set('sentAs','Mr. Higgins')
+			thread.set('senderName','')
+			thread.set('recepientName',selectedContacts[i].displayName)
+			thread.set('image',image)
+
+
+ 
+			thread.save(null, {
+			  success: function(thread) {
+			    // Execute any logic that should take place after the object is saved.
+			    alert('New object created with objectId: ' + thread.id);
+			  },
+			  error: function(thread, error) {
+			    // Execute any logic that should take place if the save fails.
+			    // error is a Parse.Error with an error code and description.
+			    alert('Failed to create new object, with error code: ' + error.message);
+			  }
+			});
+		}
+		$rootScope.data=''
+		$state.go('inbox')
+
+
+    };
 
 	document.addEventListener("deviceready", onDeviceReady, false);
 

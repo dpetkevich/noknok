@@ -15,10 +15,11 @@
 				<i class="icon ion-search placeholder-icon"></i>
 			    <input type="text" ng-model='name' placeholder="Search">
 			</label>
-		  	<ion-item class="item-icon-right" ng-init='!isActive' on-tap="isActive = !isActive" ng-repeat='contact in contacts | filter:name | orderBy:displayName'>
+		  	<ion-checkbox ng-change="selected(contact)" ng-repeat="contact in contacts | filter:name | orderBy:'displayName'" ng-model='contact.contactBox' ng-init='contact.contactBox=false'>
 			    	{{contact.displayName}}
-			      	<i ng-class="{'icon ion-ios7-circle-filled': isActive, 'icon ion-ios7-circle-outline': !isActive}"></i>
-			</ion-item>
+			    	{{selectedCount}}
+			    	{{contact.contactBox}}
+			    				</ion-checkbox>
 			<!--
 		    <div class="item item-icon-right personRow">
 			Aaron Davis
@@ -32,9 +33,9 @@
 	  </ion-list>
 	 </ion-content>
 
-	<ion-footer-bar class='bar-royal'>
+	<ion-footer-bar class='bar-royal' ng-show='selectedCount > 0'>
 	  <div class="buttons pull-right">
-	    <a class="button button-icon icon ion-arrow-right-a " style='color:white;' href='#/inbox'></a>
+	    <button class="button button-icon icon ion-arrow-right-a " style='color:white;' on-tap='createThread(contacts)'></button>
 	  </div>
 	</ion-footer-bar>
 </ion-view>
