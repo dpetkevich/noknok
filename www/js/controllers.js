@@ -21,36 +21,55 @@ angular.module('noknok.controllers', [])
     { sender: 'Pat Blute', sender_codename:'Strongbad', recepient:'blank', read:false, sender_known:true, incoming:true  },
   */
   ];
-  $rootScope.data='';
+  
 
 })
 
 
-.controller('captureController',function($scope,$rootScope,$state){
+.controller('captureController',function($scope,$rootScope,$state,$document){
 
+	
+	$scope.getPhoto = function() {
+
+		navigator.camera.getPicture(captureSuccess,captureError,
+			{  quality:50, destinationType: Camera.DestinationType.DATA_URL });	
+	}
+	
+	//file uri function
+	/*
 	$scope.getPhoto = function() {
 		navigator.camera.getPicture(captureSuccess,captureError,
-			{  quality:100, allowEdit:false, destinationType: Camera.DestinationType.DATA_URL });	
+			{  quality:50, destinationType: Camera.DestinationType.FILE_URI });	
 			//targetWidth: 320, targetHeight: 1120
 	}
-
+	*/
+	
 	  function captureSuccess(imageData) {
+
+	        var image = document.getElementById('myImage');
+
+	       // $rootScope.imgSrc='';
+   		    $rootScope.data=imageData;
+   		   	$rootScope.imgSrc =  "data:image/jpeg;base64," + imageData;
+			$rootScope.$apply()		
+	    }
+	
+/*
+	function captureSuccess(imageURI) {
 	        var image = document.getElementById('myImage');
 	        image.style.display = 'block';
 	        image.style.width = '320px'
 
-	        $rootScope.data=imageData
-   		    $rootScope.imgSrc =  "data:image/jpeg;base64," + imageData;
-   		    $rootScope.$apply();
    		    
-   		    
-   		    
+   		   	$rootScope.imgSrc = imageURI
+   		   	$rootScope.$apply()
+   		   	alert($rootScope.imgSrc)
+		
 	    }
-
-
+*/
 	function captureError(error) {
 	    var msg = 'An error occurred during capture: ' + error.code;
-	    navigator.notification.alert(msg, null, 'Uh oh!');
+	    alert('there was an error')
 	}
 
 	
@@ -60,10 +79,10 @@ angular.module('noknok.controllers', [])
 
 
 	function onDeviceReady() {
-
-		if ($rootScope.data==''){
-			$scope.getPhoto()
-		}
+		$document.ready(function() {
+			$scope.getPhoto();
+		  });
+		
 		
 
 	}
@@ -151,7 +170,7 @@ angular.module('noknok.controllers', [])
 			  }
 			});
 		}
-		$rootScope.data=''
+		//$rootScope.data=''
 		$state.go('inbox')
 
 
