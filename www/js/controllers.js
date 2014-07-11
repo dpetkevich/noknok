@@ -1,7 +1,7 @@
 angular.module('noknok.controllers', [])
 
 .controller('inboxController', function($scope,$state,$rootScope) {
-
+	/*
   $scope.threads = [
     { sender:7136645896, recepient:2812362023, read:false, known:false, sentAs:'Wenzel Juice', senderName:'', recipientName:''},
     { sender:7136645896, recepient:2812362023, read:true, known:false, sentAs:"Kap'n Crunch", senderName:'', recipientName:'' },
@@ -9,20 +9,33 @@ angular.module('noknok.controllers', [])
     { sender:2812362023, recepient:7136645896, read:false, known:false, sentAs:"Something", senderName:'', recipientName:'Paul Zamsky' },
     { sender:2812362023, recepient:7136645896, read:true, known:true, sentAs:"Something", senderName:'', recipientName:'Kevin Ho' },
     { sender:7136645896, recepient:2812362023, read:true, known:true, sentAs:"StrongBad", senderName:'Pat Blute', recipientName:'' },
-
-   /*
-
-
-
-
-
-    { sender: 'Paul Zamsky', recepient:'blank', read:false, sender_known:false, incoming:false  },
-    { sender: 'Kevin Ho', recepient:'blank', read:false, sender_known:true, incoming:false  },
-    { sender: 'Pat Blute', sender_codename:'Strongbad', recepient:'blank', read:false, sender_known:true, incoming:true  },
-  */
   ];
-  
+*/
+  $scope.threads = [];
+  var received = new Parse.Query("Thread");
+  var sent = new Parse.Query("Thread");
 
+
+  //received.equalTo("recipient",Parse.User.current().get('phone'));
+  received.equalTo("recipient",'2812362023');
+
+  sent.equalTo('sender',Parse.User.current())
+
+
+  var mainQuery = Parse.Query.or(received, sent);
+	
+	mainQuery.find({
+  		success: function(results) {
+  			for (var i=0;i<results.length;i++)
+  			{
+  				$scope.threads[i]={sender:results[i].get('sender').get('phone'), recipient:results[i].get('recipient'), read:results[i].get('read'), know: results[i].get('known'), sentAs:results[i].get('sentAs'), senderName: results[i].get('senderName'), recipientName: results[i].get('recipientName')}
+  			}	
+  			$scope.$apply()
+  		},
+  		error: function(error) {
+    		// There was an error.
+  		}
+	});
 })
 
 
@@ -32,7 +45,7 @@ angular.module('noknok.controllers', [])
 	$scope.getPhoto = function() {
 
 		navigator.camera.getPicture(captureSuccess,captureError,
-			{  quality:50, destinationType: Camera.DestinationType.DATA_URL });	
+			{  quality: 10, destinationType: Camera.DestinationType.DATA_URL });	
 	}
 	
 	//file uri function
@@ -42,8 +55,8 @@ angular.module('noknok.controllers', [])
 			{  quality:50, destinationType: Camera.DestinationType.FILE_URI });	
 			//targetWidth: 320, targetHeight: 1120
 	}
-	*/
 	
+	*/
 	  function captureSuccess(imageData) {
 
 	        var image = document.getElementById('myImage');
@@ -54,7 +67,8 @@ angular.module('noknok.controllers', [])
 			$rootScope.$apply()		
 	    }
 	
-/*
+	 /*
+
 	function captureSuccess(imageURI) {
 	        var image = document.getElementById('myImage');
 	        image.style.display = 'block';
@@ -66,7 +80,8 @@ angular.module('noknok.controllers', [])
    		   	alert($rootScope.imgSrc)
 		
 	    }
-*/
+	 */
+
 	function captureError(error) {
 	    var msg = 'An error occurred during capture: ' + error.code;
 	    alert('there was an error')
@@ -148,12 +163,12 @@ angular.module('noknok.controllers', [])
 			});
 			
 			thread.set('sender',Parse.User.current())
-			thread.set('recipient', parseInt(selectedContacts[i].phoneNumbers[0].value))
+			thread.set('recipient', selectedContacts[i].phoneNumbers[0].value)
 			thread.set('read',false)
 			thread.set('known',false)
 			thread.set('sentAs','Mr. Higgins')
 			thread.set('senderName','')
-			thread.set('recepientName',selectedContacts[i].displayName)
+			thread.set('recipientName',selectedContacts[i].displayName)
 			thread.set('image',image)
 
 
@@ -193,10 +208,6 @@ angular.module('noknok.controllers', [])
 	$scope.user={};
 	$scope.submitted = false;
 	$scope.signUp1Form={}
-
-
-
-    
 
 	$scope.submit = function(form) {
 
