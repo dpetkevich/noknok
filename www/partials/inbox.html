@@ -19,33 +19,33 @@
     <ion-list>
       
       
-        <ion-item class="item item-avatar" href="#" ng-repeat='thread in threads'>
+        <ion-item class="item item-avatar" ng-repeat='thread in threads' href="#/guess/{{thread.id}}">
             <img ng-if="!thread.read && !thread.known" src="img/cat.png">
             <img ng-if="thread.known" src="img/happyCat.png">
             <img ng-if="thread.read && !thread.known" src="img/grumpyCat.png">
 
-          <h2>
-          <span ng-if='thread.sender!=2812362023 && !thread.known'>{{thread.sentAs}}</span>
-          <span ng-if='thread.sender==2812362023'>{{thread.recipientName}}</span>
-          <span ng-if='thread.sender!=2812362023 && thread.known'>{{thread.senderName}}</span>
+            <h2>
+            <span ng-if='thread.sender!=2812362023 && !thread.known'>{{thread.sentAs}}</span>
+            <span ng-if='thread.sender==2812362023'>{{thread.recipientName}}</span>
+            <span ng-if='thread.sender!=2812362023 && thread.known'>{{thread.senderName}}</span>
 
 
-          <span ng-if="thread.sender!=2812362023 && !thread.read && !thread.known" class='guessTextStatus'>sends a nok</span>
-          <span ng-if="thread.sender!=2812362023 && thread.read && !thread.known" class='guessTextStatus'>eludes you</span>
-          <span ng-if="thread.sender==2812362023 && !thread.read && !thread.known" class='guessTextStatus'>is guessing</span>
-          <span ng-if="thread.sender==2812362023 && thread.known" class='guessTextStatus'>found you out</span>
-          <span ng-if="" class='guessTextStatus'>was {{thread.sender_codename}}</span>
-          <span ng-if="thread.sender==2812362023 && thread.read && !thread.known" class='guessTextStatus'>guessed wrong</span>
-          <span ng-if="thread.sender!=2812362023 && thread.read && thread.known" class='guessTextStatus'>was {{thread.sentAs}}</span>
+            <span ng-if="thread.sender!=2812362023 && !thread.read && !thread.known" class='guessTextStatus'>sends a nok</span>
+            <span ng-if="thread.sender!=2812362023 && thread.read && !thread.known" class='guessTextStatus'>eludes you</span>
+            <span ng-if="thread.sender==2812362023 && !thread.read && !thread.known" class='guessTextStatus'>is guessing</span>
+            <span ng-if="thread.sender==2812362023 && thread.known" class='guessTextStatus'>found you out</span>
+            <span ng-if="" class='guessTextStatus'>was {{thread.sender_codename}}</span>
+            <span ng-if="thread.sender==2812362023 && thread.read && !thread.known" class='guessTextStatus'>guessed wrong</span>
+            <span ng-if="thread.sender!=2812362023 && thread.read && thread.known" class='guessTextStatus'>was {{thread.sentAs}}</span>
 
-          </h2>
+            </h2>
 
-          <p ng-if="thread.sender!=2812362023 && !thread.read && !thread.known">Hold to View</p>
-          <p ng-if="thread.sender==2812362023 && !thread.known">Tap to Send Another Clue</p>
-          <p ng-if="thread.sender!=2812362023 && thread.read && !thread.known">Tap to Send a Message</p>
-          <p ng-if="thread.known">Tap to Send a Message</p>
-
+            <p ng-if="thread.sender!=2812362023 && !thread.read && !thread.known">Hold to View</p>
+            <p ng-if="thread.sender==2812362023 && !thread.known">Tap to Send Another Clue</p>
+            <p ng-if="thread.sender!=2812362023 && thread.read && !thread.known">Tap to Send a Message</p>
+            <p ng-if="thread.known">Tap to Send a Message</p>
         </ion-item>
+
     
     
 

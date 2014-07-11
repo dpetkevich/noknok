@@ -16,6 +16,8 @@ angular.module('noknok.controllers', [])
   var sent = new Parse.Query("Thread");
 
 
+
+
   //received.equalTo("recipient",Parse.User.current().get('phone'));
   received.equalTo("recipient",'2812362023');
 
@@ -28,7 +30,7 @@ angular.module('noknok.controllers', [])
   		success: function(results) {
   			for (var i=0;i<results.length;i++)
   			{
-  				$scope.threads[i]={sender:results[i].get('sender').get('phone'), recipient:results[i].get('recipient'), read:results[i].get('read'), know: results[i].get('known'), sentAs:results[i].get('sentAs'), senderName: results[i].get('senderName'), recipientName: results[i].get('recipientName')}
+  				$scope.threads[i]={ id:results[i].get('objectId'), sender:results[i].get('sender').get('phone'), recipient:results[i].get('recipient'), read:results[i].get('read'), know: results[i].get('known'), sentAs:results[i].get('sentAs'), senderName: results[i].get('senderName'), recipientName: results[i].get('recipientName')}
   			}	
   			$scope.$apply()
   		},
@@ -129,7 +131,6 @@ angular.module('noknok.controllers', [])
 	navigator.contacts.find(fields, onSuccess, onError, options);
 
 	}
-
 
 	$scope.selectedCount = 0;
     $scope.selected = function(contact){

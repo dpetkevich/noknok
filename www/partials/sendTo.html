@@ -8,28 +8,21 @@
 	    <button class="button button-icon icon ion-levels" style='color:white;'></button>
 	  </div>
 	</ion-header-bar>
-
+<!--ng-repeat="contact in contacts | filter:name | orderBy:'displayName'"-->
 	<ion-content has-header="true" has-footer='true'>
 	  <ion-list>
-	  		<label class="item item-input">
-				<i class="icon ion-search placeholder-icon"></i>
-			    <input type="text" ng-model='name' placeholder="Search">
-			</label>
-		  	<ion-checkbox ng-change="selected(contact)" ng-repeat="contact in contacts | filter:name | orderBy:'displayName'" ng-model='contact.contactBox' ng-init='contact.contactBox=false'>
-			    	{{contact.displayName}}
-			    	{{selectedCount}}
-			    	{{contact.contactBox}}
-			    				</ion-checkbox>
-			<!--
-		    <div class="item item-icon-right personRow">
-			Aaron Davis
-		  	<i class="icon ion-ios7-circle-outline"></i>
-			</div>
-		 	<div class="item item-icon-right personRow">
-			Boris Yeltsin
-		  	<i class="icon ion-ios7-circle-outline"></i>
-			</div>
-		-->
+		  <label class="item item-input">
+		  	<i class="icon ion-search placeholder-icon"></i>
+		  	<input type="text" ng-model='name' placeholder="Search">
+		  </label>
+	  		
+		  	<li class='item item-checkbox' ng-change="selected(contact)" collection-repeat="contact in contacts | filter:name | orderBy:'displayName'" collection-item-width="320" collection-item-height="51" ng-model='contact.contactBox' ng-init='contact.contactBox=false' style='left:0;right:0;'>
+		  	<label class="checkbox">
+       			<input type="checkbox">
+     		</label>
+		  			{{contact.displayName}}
+		  	</li>
+
 	  </ion-list>
 	 </ion-content>
 
