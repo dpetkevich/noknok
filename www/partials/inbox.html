@@ -19,7 +19,7 @@
     <ion-list>
       
       
-        <ion-item class="item item-avatar" ng-repeat='thread in threads' href="#/guess/{{thread.id}}">
+        <ion-item class="item item-avatar" ng-repeat='thread in threads' href="{{thread.link}}">
             <img ng-if="!thread.read && !thread.known" src="img/cat.png">
             <img ng-if="thread.known" src="img/happyCat.png">
             <img ng-if="thread.read && !thread.known" src="img/grumpyCat.png">

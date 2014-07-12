@@ -26,7 +26,7 @@ angular.module('noknok.routes', [,"ui.router",'noknok.controllers'])
   })
 
   .state("guess", {
-    url: "/guess",
+    url: "/guess/:threadId",
     templateUrl: "partials/guess.html",
     controller: 'guessController'
   })

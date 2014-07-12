@@ -28,9 +28,25 @@ angular.module('noknok.controllers', [])
 	
 	mainQuery.find({
   		success: function(results) {
+
   			for (var i=0;i<results.length;i++)
   			{
-  				$scope.threads[i]={ id:results[i].get('objectId'), sender:results[i].get('sender').get('phone'), recipient:results[i].get('recipient'), read:results[i].get('read'), know: results[i].get('known'), sentAs:results[i].get('sentAs'), senderName: results[i].get('senderName'), recipientName: results[i].get('recipientName')}
+  				$scope.threads[i]={ id:results[i].id, sender:results[i].get('sender').get('phone'), recipient:results[i].get('recipient'), read:results[i].get('read'), know: results[i].get('known'), sentAs:results[i].get('sentAs'), senderName: results[i].get('senderName'), recipientName: results[i].get('recipientName')}
+  				if (results[i].get('read')==false)
+  				{
+  					$scope.threads[i].link='#/guess/'+results[i].id;
+
+  				}
+  				else{
+  					$scope.threads[i].link='#/capture/'+results[i].id;
+  				}
+  				//page types
+  				/*
+  				view incoming photo -  read==false
+  									   read==false 
+
+  				send new photos -  read=true
+				*/
   			}	
   			$scope.$apply()
   		},
@@ -268,6 +284,29 @@ angular.module('noknok.controllers', [])
 
 	}
   
+
+
+})
+
+.controller('guessController',function($scope,$state,$stateParams){
+	
+
+	$scope.pullPicture = function() {
+			var Thread = Parse.Object.extend("Thread");
+			var query = new Parse.Query(Thread);
+			query.get($stateParams.threadId, {
+			  success: function(thread) {
+			  	$scope.imageData=thread.get('image').url()
+			  	thread.set('read',true)
+			  	thread.save()
+			  	$scope.$apply()
+			  },
+			  error: function(object, error) {
+			    alert('error')
+			  }
+			});
+	}
+	$scope.pullPicture();
 
 
 });
