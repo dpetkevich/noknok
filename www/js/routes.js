@@ -33,7 +33,8 @@ angular.module('noknok.routes', [,"ui.router",'noknok.controllers'])
 
   .state("selectGuess", {
     url: "/selectGuess",
-    templateUrl: "partials/selectGuess.html"
+    templateUrl: "partials/selectGuess.html",
+    controller:'selectGuessController'
   })
 
   .state("sendTo", {

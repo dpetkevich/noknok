@@ -1,5 +1,9 @@
 <ion-view title='guess' on-swipe-left="alert('hello')">
-	<img ng-src='{{imageData}}' style='width:320px;display:block;'></img>
+	<ion-content footer='true'>
+	
+	<img ng-src='{{selectedThread.imageData}}' style='width:320px;display:block;'></img>
+    </ion-content>
+
 	<ion-footer-bar class='bar-balanced' >
 	  	<a href='#/selectGuess'><h1 class="title" style='font-size:26pt;color:white'>Guess Who</h1></a>
 	  </div>

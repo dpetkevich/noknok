@@ -127,8 +127,8 @@ angular.module('noknok.controllers', [])
 
 
 	function onSuccess(contacts) {
-	    $scope.contacts=contacts
-	    $scope.$apply();
+	    $rootScope.contacts=contacts
+	    $rootScope.$apply();
 	};
 
 	function onError(contactError) {
@@ -288,18 +288,20 @@ angular.module('noknok.controllers', [])
 
 })
 
-.controller('guessController',function($scope,$state,$stateParams){
+.controller('guessController',function($scope,$state,$stateParams,$rootScope){
 	
 
 	$scope.pullPicture = function() {
 			var Thread = Parse.Object.extend("Thread");
 			var query = new Parse.Query(Thread);
+			$rootScope.selectedThread={objectId: '', sender:'', imageData:''};
 			query.get($stateParams.threadId, {
 			  success: function(thread) {
-			  	$scope.imageData=thread.get('image').url()
+			  	$rootScope.selectedThread.imageData=thread.get('image').url()
+			  	$rootScope.selectedThread.sender=thread.get('sender').get('phone')
 			  	thread.set('read',true)
 			  	thread.save()
-			  	$scope.$apply()
+			  	$rootScope.$apply()
 			  },
 			  error: function(object, error) {
 			    alert('error')
@@ -307,6 +309,36 @@ angular.module('noknok.controllers', [])
 			});
 	}
 	$scope.pullPicture();
+
+
+})
+
+.controller('selectGuessController',function($scope,$rootScope){
+	
+	function onSuccess(contacts) {
+	    $scope.contacts=contacts
+	    $scope.$apply();
+	};
+
+	function onError(contactError) {
+	    alert('onError!');
+	};
+
+
+	
+
+	$scope.getContacts = function(){
+
+	var fields = ["displayName","phoneNumbers"];
+	var options = new ContactFindOptions();
+	options.filter="";          // empty search string returns all contacts
+	options.multiple=true;  
+	navigator.contacts.find(fields, onSuccess, onError, options);
+
+	}
+
+	$scope.getContacts();
+	
 
 
 });
