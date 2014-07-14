@@ -4,7 +4,7 @@ angular.module('noknok.routes', [,"ui.router",'noknok.controllers'])
 
   currentUser = Parse.User.current();
     if(currentUser) {
-      $urlRouterProvider.otherwise("/inbox")
+      $urlRouterProvider.otherwise("/wrong")
     }
     else {
       $urlRouterProvider.otherwise("/login")
@@ -53,6 +53,18 @@ angular.module('noknok.routes', [,"ui.router",'noknok.controllers'])
     url: "/login",
     templateUrl: "partials/login.html",
     controller: "loginController"
+  })
+
+  .state("correct", {
+    url: "/correct",
+    templateUrl: "partials/correct.html",
+   // controller: "loginController"
+  })
+
+  .state("wrong", {
+    url: "/wrong",
+    templateUrl: "partials/wrong.html",
+   // controller: "loginController"
   })
 
   // sign up views

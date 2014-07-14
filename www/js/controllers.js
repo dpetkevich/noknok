@@ -313,8 +313,16 @@ angular.module('noknok.controllers', [])
 
 })
 
-.controller('selectGuessController',function($scope,$rootScope){
+.controller('selectGuessController',function($scope,$rootScope,$ionicGesture){
 	
+	//var element = angular.element(document.getElementsByClassName('.guessRow'));
+
+	//$ionicGesture.on('hold', test(), element)
+
+	$scope.data = {
+    	selectedContact: ''
+  	};
+
 	function onSuccess(contacts) {
 	    $scope.contacts=contacts
 	    $scope.$apply();
@@ -325,7 +333,9 @@ angular.module('noknok.controllers', [])
 	};
 
 
-	
+	function test(){
+		alert('hello');
+	}
 
 	$scope.getContacts = function(){
 
@@ -336,8 +346,15 @@ angular.module('noknok.controllers', [])
 	navigator.contacts.find(fields, onSuccess, onError, options);
 
 	}
+	
 
-	$scope.getContacts();
+	document.addEventListener("deviceready", onDeviceReady, false);
+
+
+	function onDeviceReady() {
+		$scope.getContacts();
+		$scope.action();
+	}
 	
 
 

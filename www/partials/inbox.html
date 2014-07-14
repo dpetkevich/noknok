@@ -40,7 +40,8 @@
 
             </h2>
 
-            <p ng-if="thread.sender!=2812362023 && !thread.read && !thread.known">Hold to View</p>
+            <p ng-if="thread.sender!=2812362023 && !thread.read && !thread.known">Tap to View</p>
+            <!-- above was "Hold to view" -->
             <p ng-if="thread.sender==2812362023 && !thread.known">Tap to Send Another Clue</p>
             <p ng-if="thread.sender!=2812362023 && thread.read && !thread.known">Tap to Send a Message</p>
             <p ng-if="thread.known">Tap to Send a Message</p>
