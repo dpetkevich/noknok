@@ -1,0 +1,16 @@
+<ion-view title='guess' on-swipe-left="alert('hello');">
+<ion-header-bar style='background:black;' >
+	 <div class="buttons">
+	    <a class="button button-icon icon ion-close" style='color:white;' href='#/inbox'></a>
+	  </div>
+	 
+</ion-header-bar>
+	<ion-content footer='true' header='true'>
+	<img ng-src='{{selectedThread.imageData}}' style='width:320px;display:block;'></img>
+    </ion-content>
+
+	<ion-footer-bar class='bar-balanced' >
+	  	<a href='#/selectGuess'><h1 class="title" style='font-size:26pt;color:white'>Guess Who/Block</h1></a>
+	  </div>
+	</ion-footer-bar>
+</ion-view>

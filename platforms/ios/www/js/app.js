@@ -4,8 +4,9 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 
-/*
-angular.module('starter', ['ionic'])
+Parse.initialize("GrHnBRu3j0eOTwDH7JwncoQQQpTnAyBNqoQRZWVM", "nUmLuM9usXJi9pNjBaLnZESjeVL2GAz6gZDLMOgL");
+
+angular.module('noknok', ['ionic','noknok.routes','noknok.controllers','noknok.directives'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -18,21 +19,17 @@ angular.module('starter', ['ionic'])
       StatusBar.styleDefault();
     }
   });
-})
+});
+/*
+.run(function ($rootScope, $state, AuthService) {
+    $rootScope.$on("$stateChangeStart", function(event, toState, toParams, fromState, fromParams){
+      if (toState.authenticate && !AuthService.isAuthenticated()){
+        // User isn’t authenticated
+        $state.transitionTo("login");
+        event.preventDefault(); 
+      }
+    });
+  });
 */
 
-var app = angular.module('noknok', ['ionic',"ui.router"])
 
-app.config(function($stateProvider,$urlRouterProvider) {
-
-  $urlRouterProvider.otherwise("/")
-
-  $stateProvider
-  .state("inbox", {
-    url: "/",
-    templateUrl: "partials/inbox.html"
-  });
-
-//$urlRouterProvider.otherwise('inbox');
-  
-});

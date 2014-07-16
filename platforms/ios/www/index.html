@@ -6,35 +6,33 @@
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
 
     <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+   
 
-     <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+    <script src="lib/ionic/js/parse/parse.js"></script>
 
 
     <!-- Needed for Cordova/PhoneGap (will be a 404 during development) -->
     <script src="lib/ionic/js/ionic.js"></script>
     <script src="lib/ionic/js/angular/angular.js"></script>
-   <script src="lib/ionic/js/angular/angular-animate.js"></script>
-   <script src="lib/ionic/js/angular/angular-sanitize.js"></script>
-   <script src="lib/ionic/js/angular-ui/angular-ui-router.min.js"></script>
-   <script src="lib/ionic/js/ionic-angular.js"></script>
+    <script src="lib/ionic/js/angular/angular-animate.js"></script>
+    <script src="lib/ionic/js/angular/angular-sanitize.js"></script>
+    <script src="lib/ionic/js/angular-ui/angular-ui-router.min.js"></script>
+    <script src="lib/ionic/js/ionic-angular.js"></script>
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+
+    <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
 
     <script src="js/app.js"></script>
+    <script src="js/routes.js"></script>
+    <script src="js/controllers.js"></script>
+    <script src="js/directives.js"></script>
+    
 
-    <script>
 
-        document.addEventListener('deviceready',onDeviceReady,false);
-
-
-      function onDeviceReady(){
-        alert('hello')
-        StatusBar.overlaysWebView(false);
-
-      }
-
-    </script>
   
   </head>
-  <body ng-app="noknok" animation="slide-left-right-ios7" style='margin-top:20px;'>
+  <body ng-app="noknok" >
     <!-- 
       The nav bar that will be updated as we navigate between views
       Additional attributes set its look, nav-bar animation and icons
@@ -47,7 +45,7 @@
       Templates are in the /templates folder (but you could also
       have templates inline in this html file if you'd like).
     -->
-    <nav-view ui-view></nav-view>
+    <ion-nav-view ui-view animation="slide-left-right-ios7" ></ion-nav-view>
 
   </body>
 </html>

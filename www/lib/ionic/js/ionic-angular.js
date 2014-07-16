@@ -4946,10 +4946,11 @@ function gestureDirective(directiveName) {
 
     return {
       restrict: 'A',
-      compile: function($element, attr) {
+     // compile: function($element, attr) {
+      link: function(scope, element, attr) {
         var fn = $parse( attr[directiveName] );
 
-        return function(scope, element, attr) {
+    //    return function(scope, element, attr) {
 
           var listener = function(ev) {
             scope.$apply(function() {
@@ -4957,12 +4958,12 @@ function gestureDirective(directiveName) {
             });
           };
 
-          var gesture = $ionicGesture.on(eventType, listener, $element);
-
+      //    var gesture = $ionicGesture.on(eventType, listener, $element);
+          var gesture = $ionicGesture.on(eventType, listener, element);
           scope.$on('$destroy', function() {
             $ionicGesture.off(gesture, eventType, listener);
           });
-        };
+     //   };
       }
     };
   }];

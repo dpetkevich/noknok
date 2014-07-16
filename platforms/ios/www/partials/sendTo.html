@@ -1,0 +1,30 @@
+<ion-view title='SendTo'>
+	<ion-header-bar class='bar-royal' >
+	 <div class="buttons">
+	    <a class="button button-icon icon ion-chevron-left" href='#/capture' style='color:white;'></a>
+	  </div>
+	   <h1 class="title" style='font-size:26pt;color:white'>send to</h1>
+	  <div class="buttons">
+	    <button class="button button-icon icon ion-levels" style='color:white;'></button>
+	  </div>
+	</ion-header-bar>
+	<ion-content has-header="true" has-footer='true'>
+	  <ion-list>
+		  <label class="item item-input">
+		  	<i class="icon ion-search placeholder-icon"></i>
+		  	<input type="text" ng-model='name' placeholder="Search">
+		  </label>
+	  		
+		  	<ion-checkbox class='item item-checkbox' ng-change="selected(contact)" collection-repeat="contact in contacts | filter:name | orderBy:'displayName'" collection-item-width="320" collection-item-height="51" ng-model='contact.contactBox' ng-init='contact.contactBox=false' style='left:0;right:0;'>
+		  			{{contact.displayName}}
+		  	</ion-checkbox>
+
+	  </ion-list>
+	 </ion-content>
+
+	<ion-footer-bar class='bar-royal' ng-show='selectedCount > 0'>
+	  <div class="buttons pull-right">
+	    <button class="button button-icon icon ion-arrow-right-a " style='color:white;' on-tap='createThread(contacts)'></button>
+	  </div>
+	</ion-footer-bar>
+</ion-view>

@@ -3,62 +3,95 @@
   It was wired up in the app config (app.js) 
   The 'pets' data comes from its $scope within PetIndexCtrl (controller.js)
 -->
-<div style='height:20px;background-color:#EC3D2E;display:block;'>
-      <h1 class="title" style='font-size:26pt;color:white'>nok-nok</h1>
-</div>
-<ion-header-bar style='background-color:#EC3D2E' style='padding-top:20px'>
-  <div class='headerBarContents'>
-    <h1 class="title" style='font-size:26pt;color:white'>nok-nok</h1>
-  </div>
-<!--
-  <div class="buttons">
-      <i class="barHeaderButton icon ion-camera" style='color:white'></i>
-  </div>
-  <div class="buttons" >
-    <i class="barHeaderButton icon ion-levels" style='color:white'></i>
-  </div>
--->
-</ion-header-bar>
-
-
-<ion-content has-header="true" >
-  <list>
-    <div class="item item-divider">
-        Mysteries
+<ion-view title='inbox'>
+  <ion-header-bar class='bar-assertive' >
+   <div class="buttons">
+      <a class="button button-icon icon ion-camera" href='#/capture' style='color:white;'></a>
     </div>
-    <a class="item item-avatar" href="#">
-       <img src="venkman.jpg">
-       <h2>Wenzel Juice</h2>
-         <p>Hold to View</p>
-     </a>
-     <a class="item item-avatar" href="#">
-       <img src="venkman.jpg">
-       <h2>Kap'n Crunch<span class='guessTextStatus'>eludes you</span></h2>
-         <p>Tap to Send a Message</p>
-     </a>
-     <a class="item item-avatar" href="#">
-       <img src="venkman.jpg">
-       <h2>Zola Quao<span class='guessTextStatus'>guessed wrong</span></h2>
-         <p>Tap to Send another Clue</p>
-     </a>
-     <a class="item item-avatar" href="#">
-       <img src="venkman.jpg">
-       <h2>Paul Zamsky<span class='guessTextStatus'>is guessing</span></h2>
-         <p>Tap to Send another Clue</p>
-     </a>
-
-   <div class="item item-divider">
-      Closed Cases
+     <h1 class="title" style='font-size:26pt;color:white'>nok-nok</h1>
+    <div class="buttons">
+      <button class="button button-icon icon ion-levels" style='color:white;'></button>
     </div>
+  </ion-header-bar>
+
+
+  <ion-content has-header="true">
+    <ion-list>
+      
+      
+        <ion-item class="item item-avatar" ng-repeat='thread in threads' href="{{thread.link}}">
+            <img ng-if="!thread.read && !thread.known" src="img/cat.png">
+            <img ng-if="thread.known" src="img/happyCat.png">
+            <img ng-if="thread.read && !thread.known" src="img/grumpyCat.png">
+
+            <h2>
+            <span ng-if='thread.sender!=2812362023 && !thread.known'>{{thread.sentAs}}</span>
+            <span ng-if='thread.sender==2812362023'>{{thread.recipientName}}</span>
+            <span ng-if='thread.sender!=2812362023 && thread.known'>{{thread.senderName}}</span>
+
+
+            <span ng-if="thread.sender!=2812362023 && !thread.read && !thread.known" class='guessTextStatus'>sends a nok</span>
+            <span ng-if="thread.sender!=2812362023 && thread.read && !thread.known" class='guessTextStatus'>eludes you</span>
+            <span ng-if="thread.sender==2812362023 && !thread.read && !thread.known" class='guessTextStatus'>is guessing</span>
+            <span ng-if="thread.sender==2812362023 && thread.known" class='guessTextStatus'>found you out</span>
+            <span ng-if="" class='guessTextStatus'>was {{thread.sender_codename}}</span>
+            <span ng-if="thread.sender==2812362023 && thread.read && !thread.known" class='guessTextStatus'>guessed wrong</span>
+            <span ng-if="thread.sender!=2812362023 && thread.read && thread.known" class='guessTextStatus'>was {{thread.sentAs}}</span>
+
+            </h2>
+
+            <p ng-if="thread.sender!=2812362023 && !thread.read && !thread.known">Tap to View</p>
+            <!-- above was "Hold to view" -->
+            <p ng-if="thread.sender==2812362023 && !thread.known">Tap to Send Another Clue</p>
+            <p ng-if="thread.sender!=2812362023 && thread.read && !thread.known">Tap to Send a Message</p>
+            <p ng-if="thread.known">Tap to Send a Message</p>
+        </ion-item>
+
+    
+    
+
+      <!-- sender:other_user; recepient: current_user; sent_as: Wenzel Juice; unread:true;  known: false -->
+      <!--
+      <a class="item item-avatar" href="#/guess">
+         <img src="img/cat.png" style='color:red;'>
+         <h2>Wenzel Juice<span class='guessTextStatus'>sends a nok</span></h2>
+           <p>Hold to View</p>
+       </a>
+
+      
+       <a class="item item-avatar" href="#">
+         <img src="img/cat.png" style='color:red;'>
+         <h2>Kap'n Crunch<span class='guessTextStatus'>eludes you</span></h2>
+           <p>Tap to Send a Message</p>
+       </a>
+      
+       <a class="item item-avatar" href="#">
+         <img src="img/grumpyCat.png">
+         <h2>Zola Quao<span class='guessTextStatus'>guessed wrong</span></h2>
+           <p>Tap to Send another Clue</p>
+       </a>
+
+     
+       <a class="item item-avatar" href="#">
+         <img src="img/cat.png">
+         <h2>Paul Zamsky<span class='guessTextStatus'>is guessing</span></h2>
+           <p>Tap to Send another Clue</p>
+       </a>
+
+      
         <a class="item item-avatar" href="#">
-       <img src="venkman.jpg">
-       <h2>Kevin Ho<span class='guessTextStatus'>found you out</span></h2>
-         <p>Tap to Send a Message</p>
-     </a>
-      <a class="item item-avatar" href="#">
-       <img src="venkman.jpg">
-       <h2>Pat Blute<span class='guessTextStatus'>was Strongbad</span></h2>
-         <p>Tap to Send a Message</p>
-     </a>
-  </list>
-</ion-content>
+         <img src="img/happyCat.png">
+         <h2>Kevin Ho<span class='guessTextStatus'>found you out</span></h2>
+           <p>Tap to Send a Message</p>
+       </a>
+     
+        <a class="item item-avatar" href="#">
+         <img src="img/happyCat.png">
+         <h2>Pat Blute<span class='guessTextStatus' >was Strongbad</span></h2>
+           <p>Tap to Send a Message</p>
+       </a>
+      -->
+    </ion-list>
+  </ion-content>
+</ion-view>
+

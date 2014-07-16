@@ -63,7 +63,7 @@ angular.module('noknok.controllers', [])
 	$scope.getPhoto = function() {
 
 		navigator.camera.getPicture(captureSuccess,captureError,
-			{  quality: 5, destinationType: Camera.DestinationType.DATA_URL });	
+			{  quality: 10, destinationType: Camera.DestinationType.DATA_URL });	
 	}
 	
 	//file uri function
