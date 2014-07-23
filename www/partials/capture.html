@@ -1,7 +1,7 @@
 <ion-view title='capture'>
 	<ion-header-bar style='background:black;' >
 	 <div class="buttons">
-	    <button class="button button-icon icon ion-close" style='color:white;' on-tap='getPhoto()'></button>
+	    <button class="button button-icon icon ion-close" style='color:white;' on-tap="$broadcast('retakePhoto')"></button>
 	  </div>
 	  <div class="buttons pull-right">
 	    <button class="button button-icon icon ion-edit" style='color:white;'></button>

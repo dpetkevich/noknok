@@ -1,6 +1,6 @@
-angular.module('noknok.directives', [])
+angular.module('noknok.directives', ['noknok.services'])
 
-.directive('camera', function() {
+.directive('camera', function(camera) {
    return {
       restrict: 'A',
       link: function link(scope, element, attrs){
@@ -8,33 +8,26 @@ angular.module('noknok.directives', [])
       document.addEventListener("deviceready", onDeviceReady, false);
 
         function onDeviceReady() {
-            getPhoto();
+
+          getPhoto()
+          
         };
 
-        function getPhoto() {
-          navigator.camera.getPicture(
-            captureSuccess,
-            captureError,
-            {
-             quality: 5 ,
-             destinationType: Camera.DestinationType.DATA_URL,
-             sourceType: Camera.PictureSourceType.CAMERA,
-            }
-          );  
-        }
+      scope.$on('retakePhoto',function(){
+              getPhoto()
+      });
 
-        function captureSuccess(imageData) {
-          //scope.imageSrc="data:image/jpeg;base64,"+imageData;
-          scope.imageSrc="data:image/jpeg;base64,"+imageData;
-          scope.$apply()
-        }
-
-
-        function captureError(error) {
-          var msg = 'An error occurred during capture: ' + error.code;
-          alert('there was an error')
+        getPhoto = function(){
+          camera.getPhoto()
+              .then(function(imageSrc){
+                 scope.imageSrc=imageSrc;
+              },
+              function(error){
+                alert('error was '+error);
+              })
         }
 
       }
+
    };
 });
