@@ -14,7 +14,7 @@
 	http://codrspace.com/vote539/writing-a-custom-camera-plugin-for-phonegap/
 </info>
 
-<js-module src="www/js/custom_camera.js" name="CustomCamera">
+<js-module src="www/custom_camera.js" name="CustomCamera">
 	<clobbers target="navigator.CustomCamera" />
 </js-module>
 
@@ -37,6 +37,7 @@
 	<source-file src="platforms/ios/CustomCamera/Classes/CustomCamera.m" />
 	<source-file src="platforms/ios/CustomCamera/Classes/CustomCameraViewController.m" />
 	<resource-file src="platforms/ios/CustomCamera/Classes/CustomCameraViewController.xib" />
+	<resource-file src="platforms/ios/CustomCamera/Resources/icons/capture.png" />
 
 </platform>
 

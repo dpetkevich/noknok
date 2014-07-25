@@ -30,7 +30,7 @@
         <div class="app">
             <button id="openCustomCameraBtn">Open Custom Camera</button>
             <img id="photoImg" style="position: fixed; top: 0; width: 50%; left: 25%;" />
-            <script src="js/custom_camera.js"></script>
+            <script src="custom_camera.js"></script>
             <script>
             document.getElementById("openCustomCameraBtn").addEventListener("click", function(){
                 CustomCamera.getPicture(function(imagePath){
@@ -47,7 +47,7 @@
             </div>
         </div>
         <script type="text/javascript" src="phonegap.js"></script>
-        <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript" src="index.js"></script>
         <script type="text/javascript">
             app.initialize();
         </script>

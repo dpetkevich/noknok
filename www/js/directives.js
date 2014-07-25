@@ -5,20 +5,18 @@ angular.module('noknok.directives', ['noknok.services'])
       restrict: 'A',
       link: function link(scope, element, attrs){
 
-      document.addEventListener("deviceready", onDeviceReady, false);
+      //document.addEventListener("deviceready", onDeviceReady, false);
 
-        function onDeviceReady() {
 
-          getPhoto()
           
-        };
+        
 
       scope.$on('retakePhoto',function(){
               getPhoto()
       });
 
         getPhoto = function(){
-          camera.getPhoto()
+          camera.capturePhoto()
               .then(function(imageSrc){
                  scope.imageSrc=imageSrc;
               },
@@ -26,6 +24,9 @@ angular.module('noknok.directives', ['noknok.services'])
                 alert('error was '+error);
               })
         }
+
+        getPhoto()
+
 
       }
 

@@ -57,69 +57,21 @@ angular.module('noknok.controllers', [])
 })
 
 
-.controller('captureController',function($scope,$rootScope,$state,$document){
+.controller('captureController',function($scope,$rootScope,$state,$document,camera){
 
+	$scope.imageSrc='';
 	
-	$scope.getPhoto = function() {
-
-		navigator.camera.getPicture(captureSuccess,captureError,
-			{  quality: 10, destinationType: Camera.DestinationType.DATA_URL });	
-	}
+	$scope.getPhoto = function(){
+		 camera.getPhoto()
+            .then(function(imageSrc){
+               $scope.imageSrc=imageSrc;
+               $scope.$apply()
+            },
+            function(error){
+              alert('error was '+error);
+            })
+    };
 	
-	//file uri function
-	/*
-	$scope.getPhoto = function() {
-		navigator.camera.getPicture(captureSuccess,captureError,
-			{  quality:50, destinationType: Camera.DestinationType.FILE_URI });	
-			//targetWidth: 320, targetHeight: 1120
-	}
-	
-	*/
-	  function captureSuccess(imageData) {
-
-	        var image = document.getElementById('myImage');
-
-	       // $rootScope.imgSrc='';
-   		    $rootScope.data=imageData;
-   		   	$rootScope.imgSrc =  "data:image/jpeg;base64," + imageData;
-			$rootScope.$apply()		
-	    }
-	
-	 /*
-
-	function captureSuccess(imageURI) {
-	        var image = document.getElementById('myImage');
-	        image.style.display = 'block';
-	        image.style.width = '320px'
-
-   		    
-   		   	$rootScope.imgSrc = imageURI
-   		   	$rootScope.$apply()
-   		   	alert($rootScope.imgSrc)
-		
-	    }
-	 */
-
-	function captureError(error) {
-	    var msg = 'An error occurred during capture: ' + error.code;
-	    alert('there was an error')
-	}
-
-	
-	
-
-	document.addEventListener("deviceready", onDeviceReady, false);
-
-
-	function onDeviceReady() {
-		$document.ready(function() {
-			$scope.getPhoto();
-		  });
-		
-		
-
-	}
-
 
 })
 
