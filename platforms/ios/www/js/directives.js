@@ -5,12 +5,6 @@ angular.module('noknok.directives', ['noknok.services'])
       restrict: 'A',
       link: function link(scope, element, attrs){
 
-      //document.addEventListener("deviceready", onDeviceReady, false);
-
-
-          
-        
-
       scope.$on('retakePhoto',function(){
               getPhoto()
       });

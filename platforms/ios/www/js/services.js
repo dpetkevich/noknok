@@ -5,19 +5,19 @@ angular.module('noknok.services', [])
   var deferred=$q.defer();
 
   service.capturePhoto = function(){
-      //alert('infunction');
       
       navigator.CustomCamera.getPicture(
         captureSuccess,
         captureError 
       );   
       
+      return deferred.promise;
   
   }
 
   function captureSuccess(imageURL) {
-          //scope.imageSrc="data:image/jpeg;base64,"+imageData;
-          imageSrc=imageData;
+          //alert('imageURl is' + imageURL)
+          var imageSrc=imageURL;
           deferred.resolve(imageSrc)
         }
 
