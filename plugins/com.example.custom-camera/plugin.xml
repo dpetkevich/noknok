@@ -37,7 +37,7 @@
 	<source-file src="platforms/ios/CustomCamera/Classes/CustomCamera.m" />
 	<source-file src="platforms/ios/CustomCamera/Classes/CustomCameraViewController.m" />
 	<resource-file src="platforms/ios/CustomCamera/Classes/CustomCameraViewController.xib" />
-	<resource-file src="platforms/ios/CustomCamera/Resources/icons/capture.png" />
+	<resource-file src="platforms/ios/CustomCamera/Resources/icons/capture.png"/>
 
 </platform>
 
