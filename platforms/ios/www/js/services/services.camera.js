@@ -1,18 +1,15 @@
-angular.module('noknok.services', [])
+angular.module('noknok.services.camera', [])
 
 .factory('camera', function($q,$state){
   var service={};
   var deferred=$q.defer();
 
   service.capturePhoto = function(){
-      
       navigator.CustomCamera.getPicture(
         captureSuccess,
         captureError 
       );   
-      
       return deferred.promise;
-  
   }
 
   function captureSuccess(imageURL) {
@@ -26,15 +23,13 @@ angular.module('noknok.services', [])
           }
         }
 
-
 	function captureError() {
 	  var msg = 'An error occurred during capture';
 	  alert('there was an error')
 	  deferred.reject(msg);
 	}
 
-
-
-
  return service;
+
 });
+
