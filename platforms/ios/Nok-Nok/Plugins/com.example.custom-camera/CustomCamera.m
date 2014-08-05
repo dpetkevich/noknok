@@ -30,4 +30,13 @@
 	[self.viewController dismissModalViewControllerAnimated:YES];
 }
 
+-(void) imageCanceled {
+    [self.commandDelegate sendPluginResult:[CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:@""] callbackId:self.latestCommand.callbackId];
+    
+	// Unset the self.hasPendingOperation property
+	self.hasPendingOperation = NO;
+    
+   [self.viewController dismissModalViewControllerAnimated:YES];
+    
+}
 @end

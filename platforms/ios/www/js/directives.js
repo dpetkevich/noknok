@@ -6,6 +6,7 @@ angular.module('noknok.directives', ['noknok.services'])
       link: function link(scope, element, attrs){
 
       scope.$on('retakePhoto',function(){
+              scope.imageSrc=''
               getPhoto()
       });
 
@@ -18,7 +19,6 @@ angular.module('noknok.directives', ['noknok.services'])
                 alert('error was '+error);
               })
         }
-
         getPhoto()
 
 

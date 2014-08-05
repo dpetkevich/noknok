@@ -6,9 +6,11 @@
 	objectVersion = 46;
 	objects = {
 /* Begin PBXBuildFile section */
+		0B4C05D7199051E800A74C8F /* capture1.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B4C05D6199051E800A74C8F /* capture1.png */; };
 		1D3623260D0F684500981E51 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* AppDelegate.m */; };
 		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
 		1F766FE113BBADB100FB74C0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F766FDC13BBADB100FB74C0 /* Localizable.strings */; };
+		24BAE4215C8B48E595293D2A /* CustomCameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5522562508FC4D27BA16D69D /* CustomCameraViewController.m */; };
 		288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765FC0DF74451002DB57D /* CoreGraphics.framework */; };
 		301BF552109A68D80062928A /* libCordova.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 301BF535109A57CC0062928A /* libCordova.a */; };
 		302D95F114D2391D003F00A1 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 302D95EF14D2391D003F00A1 /* MainViewController.m */; };
@@ -25,8 +27,13 @@
 		308D05391370CCF300D202BF /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 308D05301370CCF300D202BF /* icon@2x.png */; };
 		30A0434814DC770100060A13 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 30A0434314DC770100060A13 /* Localizable.strings */; };
 		30FC414916E50CA1004E6F35 /* icon-72@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 30FC414816E50CA1004E6F35 /* icon-72@2x.png */; };
+		38306C3C4C164E85B54C2465 /* CustomCamera.m in Sources */ = {isa = PBXBuildFile; fileRef = 68CE52D8DAEC4F02A7606327 /* CustomCamera.m */; };
+		58062BA085CA47A6A3A1FA8F /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21CCA0D9ED4843FDAD10C8BB /* AVFoundation.framework */; };
 		5AEE5B35173C68D80009041E /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AEE5B34173C68D80009041E /* CoreLocation.framework */; };
 		5B1594DD16A7569C00FEF299 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B1594DC16A7569C00FEF299 /* AssetsLibrary.framework */; };
+		6F823E5B7AD34B288628F7D1 /* Echo.m in Sources */ = {isa = PBXBuildFile; fileRef = D2F7011BD82843FA99BCCC38 /* Echo.m */; };
+		711CE0395BB54417AE7F42CC /* CustomCameraViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0ABAC5183AAB4FD7820F6CD9 /* CustomCameraViewController.xib */; };
+		7C9692A00ACC49A2BD7E2ECA /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C28B13CD037B4CE7800E5EC3 /* ImageIO.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		7E7966DE1810823500FA85AD /* icon-40.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E7966D41810823500FA85AD /* icon-40.png */; };
 		7E7966DF1810823500FA85AD /* icon-40@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E7966D51810823500FA85AD /* icon-40@2x.png */; };
 		7E7966E01810823500FA85AD /* icon-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E7966D61810823500FA85AD /* icon-50.png */; };
@@ -37,15 +44,9 @@
 		7E7966E51810823500FA85AD /* icon-76@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E7966DB1810823500FA85AD /* icon-76@2x.png */; };
 		7E7966E61810823500FA85AD /* icon-small.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E7966DC1810823500FA85AD /* icon-small.png */; };
 		7E7966E71810823500FA85AD /* icon-small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E7966DD1810823500FA85AD /* icon-small@2x.png */; };
-		D4A0D8761607E02300AEF8BB /* Default-568h@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = D4A0D8751607E02300AEF8BB /* Default-568h@2x~iphone.png */; };
-		7C9692A00ACC49A2BD7E2ECA /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C28B13CD037B4CE7800E5EC3 /* ImageIO.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		C4F0AE95D1654B77B5B9D8A9 /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 005FF443A1FB426A803D04DB /* libiconv.dylib */; };
-		58062BA085CA47A6A3A1FA8F /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21CCA0D9ED4843FDAD10C8BB /* AVFoundation.framework */; };
+		D4A0D8761607E02300AEF8BB /* Default-568h@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = D4A0D8751607E02300AEF8BB /* Default-568h@2x~iphone.png */; };
 		E3387F1F459C488E90C4A0A8 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD036EC31FB449ACA8D1D31D /* CoreVideo.framework */; };
-		38306C3C4C164E85B54C2465 /* CustomCamera.m in Sources */ = {isa = PBXBuildFile; fileRef = 68CE52D8DAEC4F02A7606327 /* CustomCamera.m */; };
-		24BAE4215C8B48E595293D2A /* CustomCameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5522562508FC4D27BA16D69D /* CustomCameraViewController.m */; };
-		711CE0395BB54417AE7F42CC /* CustomCameraViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0ABAC5183AAB4FD7820F6CD9 /* CustomCameraViewController.xib */; };
-		6F823E5B7AD34B288628F7D1 /* Echo.m in Sources */ = {isa = PBXBuildFile; fileRef = D2F7011BD82843FA99BCCC38 /* Echo.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,14 +67,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		005FF443A1FB426A803D04DB /* libiconv.dylib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = usr/lib/libiconv.dylib; sourceTree = SDKROOT; };
+		0ABAC5183AAB4FD7820F6CD9 /* CustomCameraViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomCameraViewController.xib; sourceTree = "<group>"; };
+		0B4C05D6199051E800A74C8F /* capture1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = capture1.png; sourceTree = "<group>"; };
 		1D3623240D0F684500981E51 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		1D3623250D0F684500981E51 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		1D6058910D05DD3D006BFB54 /* Nok-Nok.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Nok-Nok.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F766FDD13BBADB100FB74C0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Localizable.strings; sourceTree = "<group>"; };
 		1F766FE013BBADB100FB74C0 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = Localizable.strings; sourceTree = "<group>"; };
+		21CCA0D9ED4843FDAD10C8BB /* AVFoundation.framework */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		288765FC0DF74451002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		301BF52D109A57CC0062928A /* CordovaLib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CordovaLib.xcodeproj; path = "CordovaLib/CordovaLib.xcodeproj"; sourceTree = "<group>"; };
+		301BF52D109A57CC0062928A /* CordovaLib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CordovaLib.xcodeproj; path = CordovaLib/CordovaLib.xcodeproj; sourceTree = "<group>"; };
 		301BF56E109A69640062928A /* www */ = {isa = PBXFileReference; lastKnownFileType = folder; path = www; sourceTree = SOURCE_ROOT; };
 		302D95EE14D2391D003F00A1 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		302D95EF14D2391D003F00A1 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
@@ -92,8 +97,10 @@
 		30A0434714DC770100060A13 /* se */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = se; path = Localizable.strings; sourceTree = "<group>"; };
 		30FC414816E50CA1004E6F35 /* icon-72@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-72@2x.png"; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* Nok-Nok-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Nok-Nok-Prefix.pch"; sourceTree = "<group>"; };
+		5522562508FC4D27BA16D69D /* CustomCameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustomCameraViewController.m; path = "com.example.custom-camera/CustomCameraViewController.m"; sourceTree = "<group>"; };
 		5AEE5B34173C68D80009041E /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		5B1594DC16A7569C00FEF299 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+		68CE52D8DAEC4F02A7606327 /* CustomCamera.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustomCamera.m; path = "com.example.custom-camera/CustomCamera.m"; sourceTree = "<group>"; };
 		7E7966D41810823500FA85AD /* icon-40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-40.png"; sourceTree = "<group>"; };
 		7E7966D51810823500FA85AD /* icon-40@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-40@2x.png"; sourceTree = "<group>"; };
 		7E7966D61810823500FA85AD /* icon-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-50.png"; sourceTree = "<group>"; };
@@ -105,22 +112,17 @@
 		7E7966DC1810823500FA85AD /* icon-small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-small.png"; sourceTree = "<group>"; };
 		7E7966DD1810823500FA85AD /* icon-small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-small@2x.png"; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Nok-Nok-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Nok-Nok-Info.plist"; path = "../Nok-Nok-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
+		9C82D372AFDB44DD8F0B20F8 /* CustomCameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomCameraViewController.h; path = "com.example.custom-camera/CustomCameraViewController.h"; sourceTree = "<group>"; };
+		AD036EC31FB449ACA8D1D31D /* CoreVideo.framework */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
+		C28B13CD037B4CE7800E5EC3 /* ImageIO.framework */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
+		C81A71DA68D84B5A8C88DAF4 /* CustomCamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomCamera.h; path = "com.example.custom-camera/CustomCamera.h"; sourceTree = "<group>"; };
+		D2F7011BD82843FA99BCCC38 /* Echo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Echo.m; path = com.arbbilisim.echo/Echo.m; sourceTree = "<group>"; };
 		D4A0D8751607E02300AEF8BB /* Default-568h@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x~iphone.png"; sourceTree = "<group>"; };
+		DC1952EF69AD407C9BF54A46 /* Echo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Echo.h; path = com.arbbilisim.echo/Echo.h; sourceTree = "<group>"; };
 		EB87FDF21871DA7A0020F90C /* merges */ = {isa = PBXFileReference; lastKnownFileType = folder; name = merges; path = ../../merges; sourceTree = "<group>"; };
 		EB87FDF31871DA8E0020F90C /* www */ = {isa = PBXFileReference; lastKnownFileType = folder; name = www; path = ../../www; sourceTree = "<group>"; };
 		EB87FDF41871DAF40020F90C /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = config.xml; path = ../../config.xml; sourceTree = "<group>"; };
 		F840E1F0165FE0F500CFE078 /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = config.xml; path = "Nok-Nok/config.xml"; sourceTree = "<group>"; };
-		C28B13CD037B4CE7800E5EC3 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "ImageIO.framework"; path = "System/Library/Frameworks/ImageIO.framework"; sourceTree = SDKROOT; fileEncoding = 4; };
-		005FF443A1FB426A803D04DB /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libiconv.dylib"; path = "usr/lib/libiconv.dylib"; sourceTree = SDKROOT; fileEncoding = 4; };
-		21CCA0D9ED4843FDAD10C8BB /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "AVFoundation.framework"; path = "System/Library/Frameworks/AVFoundation.framework"; sourceTree = SDKROOT; fileEncoding = 4; };
-		AD036EC31FB449ACA8D1D31D /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "CoreVideo.framework"; path = "System/Library/Frameworks/CoreVideo.framework"; sourceTree = SDKROOT; fileEncoding = 4; };
-		68CE52D8DAEC4F02A7606327 /* CustomCamera.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "CustomCamera.m"; path = "com.example.custom-camera/CustomCamera.m"; sourceTree = "<group>"; fileEncoding = 4; };
-		5522562508FC4D27BA16D69D /* CustomCameraViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "CustomCameraViewController.m"; path = "com.example.custom-camera/CustomCameraViewController.m"; sourceTree = "<group>"; fileEncoding = 4; };
-		C81A71DA68D84B5A8C88DAF4 /* CustomCamera.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CustomCamera.h"; path = "com.example.custom-camera/CustomCamera.h"; sourceTree = "<group>"; fileEncoding = 4; };
-		9C82D372AFDB44DD8F0B20F8 /* CustomCameraViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CustomCameraViewController.h"; path = "com.example.custom-camera/CustomCameraViewController.h"; sourceTree = "<group>"; fileEncoding = 4; };
-		0ABAC5183AAB4FD7820F6CD9 /* CustomCameraViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "CustomCameraViewController.xib"; path = "CustomCameraViewController.xib"; sourceTree = "<group>"; fileEncoding = 4; };
-		D2F7011BD82843FA99BCCC38 /* Echo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "Echo.m"; path = "com.arbbilisim.echo/Echo.m"; sourceTree = "<group>"; fileEncoding = 4; };
-		DC1952EF69AD407C9BF54A46 /* Echo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "Echo.h"; path = "com.arbbilisim.echo/Echo.h"; sourceTree = "<group>"; fileEncoding = 4; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -251,8 +253,8 @@
 			isa = PBXGroup;
 			children = (
 				68CE52D8DAEC4F02A7606327 /* CustomCamera.m */,
-				5522562508FC4D27BA16D69D /* CustomCameraViewController.m */,
 				C81A71DA68D84B5A8C88DAF4 /* CustomCamera.h */,
+				5522562508FC4D27BA16D69D /* CustomCameraViewController.m */,
 				9C82D372AFDB44DD8F0B20F8 /* CustomCameraViewController.h */,
 				D2F7011BD82843FA99BCCC38 /* Echo.m */,
 				DC1952EF69AD407C9BF54A46 /* Echo.h */,
@@ -269,6 +271,7 @@
 				7E7966D61810823500FA85AD /* icon-50.png */,
 				7E7966D71810823500FA85AD /* icon-50@2x.png */,
 				7E7966D81810823500FA85AD /* icon-60.png */,
+				0B4C05D6199051E800A74C8F /* capture1.png */,
 				7E7966D91810823500FA85AD /* icon-60@2x.png */,
 				7E7966DA1810823500FA85AD /* icon-76.png */,
 				7E7966DB1810823500FA85AD /* icon-76@2x.png */,
@@ -351,7 +354,7 @@
 			attributes = {
 				LastUpgradeCheck = 510;
 			};
-			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "__CLI__" */;
+			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "Nok-Nok" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 1;
@@ -401,6 +404,7 @@
 				308D05381370CCF300D202BF /* icon.png in Resources */,
 				308D05391370CCF300D202BF /* icon@2x.png in Resources */,
 				1F766FE113BBADB100FB74C0 /* Localizable.strings in Resources */,
+				0B4C05D7199051E800A74C8F /* capture1.png in Resources */,
 				302D95F214D2391D003F00A1 /* MainViewController.xib in Resources */,
 				7E7966E01810823500FA85AD /* icon-50.png in Resources */,
 				7E7966E31810823500FA85AD /* icon-60@2x.png in Resources */,
@@ -670,7 +674,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "__CLI__" */ = {
+		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "Nok-Nok" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C01FCF4F08A954540054247B /* Debug */,

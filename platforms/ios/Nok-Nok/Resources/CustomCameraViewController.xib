@@ -18,11 +18,21 @@
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y5p-cz-RzA">
                     <rect key="frame" x="130" y="488" width="60" height="60"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <state key="normal" image="capture.png">
+                    <state key="normal" image="capture1.png">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
                         <action selector="takePhotoButtonPressed:forEvent:" destination="-1" eventType="touchUpInside" id="FOm-qq-B9K"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mf2-Eb-vaw">
+                    <rect key="frame" x="20" y="504" width="35" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" title="Back">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="dismissPicker:forEvent:" destination="-1" eventType="touchUpInside" id="khT-Vb-HkG"/>
                     </connections>
                 </button>
             </subviews>
@@ -32,6 +42,6 @@
         </view>
     </objects>
     <resources>
-        <image name="capture.png" width="60" height="60"/>
+        <image name="capture1.png" width="60" height="60"/>
     </resources>
 </document>

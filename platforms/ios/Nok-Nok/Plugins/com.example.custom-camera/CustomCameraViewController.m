@@ -48,6 +48,11 @@
 	[self.picker takePicture];
 }
 
+-(IBAction) dismissPicker:(id)sender forEvent:(UIEvent*)event {
+	// Call the takePicture method on the UIImagePickerController to capture the image.
+    [self.plugin imageCanceled];
+}
+
 // Delegate method.  UIImagePickerController will call this method as soon as the image captured above is ready to be processed.  This is also like an event callback in JavaScript.
 -(void) imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
     

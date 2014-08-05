@@ -1,6 +1,6 @@
 angular.module('noknok.services', [])
 
-.factory('camera', function($q){
+.factory('camera', function($q,$state){
   var service={};
   var deferred=$q.defer();
 
@@ -17,8 +17,13 @@ angular.module('noknok.services', [])
 
   function captureSuccess(imageURL) {
           //alert('imageURl is' + imageURL)
-          var imageSrc=imageURL;
-          deferred.resolve(imageSrc)
+          if(imageURL != ''){
+            var imageSrc=imageURL;
+            deferred.resolve(imageSrc)
+          }
+          else{
+            $state.go('inbox')
+          }
         }
 
 
