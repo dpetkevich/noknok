@@ -39,6 +39,10 @@
                         {
                             "xml": "<feature name=\"Echo\"><param name=\"ios-package\" value=\"Echo\" /></feature>",
                             "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"Keyboard\"><param name=\"ios-package\" onload=\"true\" value=\"IonicKeyboard\" /></feature>",
+                            "count": 1
                         }
                     ],
                     "plugins": [
@@ -123,6 +127,9 @@
             "PACKAGE_NAME": "NokNok"
         },
         "com.arbbilisim.echo": {
+            "PACKAGE_NAME": "NokNok"
+        },
+        "com.ionic.keyboard": {
             "PACKAGE_NAME": "NokNok"
         }
     },

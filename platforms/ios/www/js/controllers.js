@@ -11,14 +11,12 @@ angular.module('noknok.controllers', [])
     { sender:7136645896, recepient:2812362023, read:true, known:true, sentAs:"StrongBad", senderName:'Pat Blute', recipientName:'' },
   ];
 */
+
+
   $scope.threads = [];
   var received = new Parse.Query("Thread");
   var sent = new Parse.Query("Thread");
 
-
-
-
-  //received.equalTo("recipient",Parse.User.current().get('phone'));
   received.equalTo("recipient",'2812362023');
 
   sent.equalTo('sender',Parse.User.current())
@@ -218,6 +216,7 @@ angular.module('noknok.controllers', [])
 })
 
 .controller('loginController',function($scope,$state){
+
 	$scope.user={};
 
 	$scope.submit = function() {

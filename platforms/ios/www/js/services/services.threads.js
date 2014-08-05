@@ -19,7 +19,7 @@ angular.module('noknok.services.threads', [])
   service.getInbox= function(){
     mainQuery.find(onSuccess,onError);
     return deferred.promise;
-  });
+  };
   
   // compound query callback functions
 

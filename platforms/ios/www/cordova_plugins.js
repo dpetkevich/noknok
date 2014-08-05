@@ -34,13 +34,21 @@ module.exports = [
         "clobbers": [
             "navigator.CustomCamera"
         ]
+    },
+    {
+        "file": "plugins/com.ionic.keyboard/www/keyboard.js",
+        "id": "com.ionic.keyboard.keyboard",
+        "clobbers": [
+            "cordova.plugins.Keyboard"
+        ]
     }
 ];
 module.exports.metadata = 
 // TOP OF METADATA
 {
     "org.apache.cordova.camera": "0.3.0",
-    "com.example.custom-camera": "0.0.1"
+    "com.example.custom-camera": "0.0.1",
+    "com.ionic.keyboard": "1.0.2"
 }
 // BOTTOM OF METADATA
 });
