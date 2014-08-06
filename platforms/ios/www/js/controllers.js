@@ -38,18 +38,19 @@ angular.module('noknok.controllers', ['noknok.services.thread','noknok.services.
 		alert('There was an error:' + error);
 	}
 	*/
-
+	/*
 	$scope.getPhoto = function(){
 		camera.capturePhoto()
               .then(function(imageSrc){
+              	 $state.go('capture')
+
                  thread.draft.imageURL=imageSrc;
-                 $state.go('capture')
               },
               function(error){
                 alert('error was '+error);
               })	
 	}
-
+	*/
 
 
 
