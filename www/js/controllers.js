@@ -15,8 +15,8 @@ angular.module('noknok.controllers', ['noknok.services.thread','noknok.services.
 
 	$scope.threads = [];
 
-	/*
-	threads.getInbox.then(onSuccess,onError);
+	
+	thread.getInbox().then(onSuccess,onError);
 
 	function onSuccess(results){
 		for (var i=0;i<results.length;i++)
@@ -37,7 +37,7 @@ angular.module('noknok.controllers', ['noknok.services.thread','noknok.services.
 	function onError(error){
 		alert('There was an error:' + error);
 	}
-	*/
+	
 	/*
 	$scope.getPhoto = function(){
 		camera.capturePhoto()
@@ -97,13 +97,26 @@ angular.module('noknok.controllers', ['noknok.services.thread','noknok.services.
 })
 
 
-.controller('captureController',function($scope,$rootScope,$state,thread){
+.controller('captureController',function($scope,$rootScope,$state,thread,camera){
+	
+	$scope.$on('retakePhoto',function(){
+              $scope.imageSrc=''
+              $scope.$apply()
+              getPhoto()
+    });
 
-	$scope.imageSrc=thread.draft.imageURL;
-	
-	
-	
+    getPhoto = function(){
+      camera.capturePhoto()
+          .then(function(imageSrc){
+             $scope.imageSrc=imageSrc;
+          },
+          function(error){
+            alert('error was '+error);
+          })
+    }
 
+    getPhoto()
+	
 })
 
 .controller('sendToController',function($scope,$filter,$rootScope,$state){

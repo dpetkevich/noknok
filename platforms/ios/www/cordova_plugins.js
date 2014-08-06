@@ -41,6 +41,13 @@ module.exports = [
         "clobbers": [
             "cordova.plugins.Keyboard"
         ]
+    },
+    {
+        "file": "plugins/org.apache.cordova.splashscreen/www/splashscreen.js",
+        "id": "org.apache.cordova.splashscreen.SplashScreen",
+        "clobbers": [
+            "navigator.splashscreen"
+        ]
     }
 ];
 module.exports.metadata = 
@@ -48,7 +55,8 @@ module.exports.metadata =
 {
     "org.apache.cordova.camera": "0.3.0",
     "com.example.custom-camera": "0.0.1",
-    "com.ionic.keyboard": "1.0.2"
+    "com.ionic.keyboard": "1.0.2",
+    "org.apache.cordova.splashscreen": "0.3.1"
 }
 // BOTTOM OF METADATA
 });

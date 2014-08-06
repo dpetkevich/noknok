@@ -43,6 +43,10 @@
                         {
                             "xml": "<feature name=\"Keyboard\"><param name=\"ios-package\" onload=\"true\" value=\"IonicKeyboard\" /></feature>",
                             "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"SplashScreen\"><param name=\"ios-package\" value=\"CDVSplashScreen\" /><param name=\"onload\" value=\"true\" /></feature>",
+                            "count": 1
                         }
                     ],
                     "plugins": [
@@ -70,7 +74,7 @@
                     "CoreGraphics.framework": [
                         {
                             "xml": "false",
-                            "count": 1
+                            "count": 2
                         }
                     ],
                     "AssetsLibrary.framework": [
@@ -130,6 +134,9 @@
             "PACKAGE_NAME": "NokNok"
         },
         "com.ionic.keyboard": {
+            "PACKAGE_NAME": "NokNok"
+        },
+        "org.apache.cordova.splashscreen": {
             "PACKAGE_NAME": "NokNok"
         }
     },

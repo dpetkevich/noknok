@@ -35,6 +35,10 @@
     <feature name="Echo">
         <param name="ios-package" value="Echo" />
     </feature>
+    <feature name="SplashScreen">
+        <param name="ios-package" value="CDVSplashScreen" />
+        <param name="onload" value="true" />
+    </feature>
     <plugins>
         <plugin name="BarcodeScanner" value="CDVBarcodeScanner" />
     </plugins>
@@ -52,6 +56,8 @@
     <preference name="UIWebViewBounce" value="false" />
     <preference name="DisallowOverscroll" value="true" />
     <preference name="HideKeyboardFormAccessoryBar" value="true" />
+    <preference name="AutoHideSplashScreen" value="false" />
+    <preference name="SplashScreenDelay" value="10000" />
     <feature name="CustomCamera">
         <param name="ios-package" value="CustomCamera" />
     </feature>

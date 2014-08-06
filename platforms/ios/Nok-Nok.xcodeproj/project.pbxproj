@@ -49,6 +49,7 @@
 		E3387F1F459C488E90C4A0A8 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD036EC31FB449ACA8D1D31D /* CoreVideo.framework */; };
 		B5181BC890594ACA8BF3821F /* IonicKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = 280E7C4A512C4CE0A057FCB1 /* IonicKeyboard.m */; };
 		06BA2294A1F942828A8805C5 /* UIWebViewExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 470D9B289DCC4FCFBE2EA888 /* UIWebViewExtension.m */; };
+		6154DE72B6FC46D89433C8D1 /* CDVSplashScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E8C3C19138A4B59BC18BFBE /* CDVSplashScreen.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -129,6 +130,8 @@
 		470D9B289DCC4FCFBE2EA888 /* UIWebViewExtension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "UIWebViewExtension.m"; path = "com.ionic.keyboard/UIWebViewExtension.m"; sourceTree = "<group>"; fileEncoding = 4; };
 		3AB3AEAE3A664AB59A75768A /* IonicKeyboard.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "IonicKeyboard.h"; path = "com.ionic.keyboard/IonicKeyboard.h"; sourceTree = "<group>"; fileEncoding = 4; };
 		D6787FD53E7948AC806741E2 /* UIWebViewExtension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "UIWebViewExtension.h"; path = "com.ionic.keyboard/UIWebViewExtension.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		7E8C3C19138A4B59BC18BFBE /* CDVSplashScreen.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "CDVSplashScreen.m"; path = "org.apache.cordova.splashscreen/CDVSplashScreen.m"; sourceTree = "<group>"; fileEncoding = 4; };
+		5DD7AE4DEFDB4C749B0B915F /* CDVSplashScreen.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CDVSplashScreen.h"; path = "org.apache.cordova.splashscreen/CDVSplashScreen.h"; sourceTree = "<group>"; fileEncoding = 4; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -268,6 +271,8 @@
 				470D9B289DCC4FCFBE2EA888 /* UIWebViewExtension.m */,
 				3AB3AEAE3A664AB59A75768A /* IonicKeyboard.h */,
 				D6787FD53E7948AC806741E2 /* UIWebViewExtension.h */,
+				7E8C3C19138A4B59BC18BFBE /* CDVSplashScreen.m */,
+				5DD7AE4DEFDB4C749B0B915F /* CDVSplashScreen.h */,
 			);
 			name = Plugins;
 			path = "Nok-Nok/Plugins";
@@ -470,6 +475,7 @@
 				6F823E5B7AD34B288628F7D1 /* Echo.m in Sources */,
 				B5181BC890594ACA8BF3821F /* IonicKeyboard.m in Sources */,
 				06BA2294A1F942828A8805C5 /* UIWebViewExtension.m in Sources */,
+				6154DE72B6FC46D89433C8D1 /* CDVSplashScreen.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

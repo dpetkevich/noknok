@@ -16,7 +16,7 @@
 	self.overlay.plugin = self;
     
 	// Display the view.  This will "slide up" a modal view from the bottom of the screen.
-	[self.viewController presentViewController:self.overlay.picker animated:YES completion:nil];
+	[self.viewController presentViewController:self.overlay.picker animated:NO completion:nil];
 }
 
 // Method called by the overlay when the image is ready to be sent back to the web view
@@ -27,7 +27,7 @@
 	self.hasPendingOperation = NO;
     
 	// Hide the picker view
-	[self.viewController dismissModalViewControllerAnimated:YES];
+	[self.viewController dismissModalViewControllerAnimated:NO];
 }
 
 -(void) imageCanceled {
@@ -36,7 +36,7 @@
 	// Unset the self.hasPendingOperation property
 	self.hasPendingOperation = NO;
     
-   [self.viewController dismissModalViewControllerAnimated:YES];
+   [self.viewController dismissModalViewControllerAnimated:NO];
     
 }
 @end

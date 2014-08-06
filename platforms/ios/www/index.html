@@ -32,8 +32,20 @@
     <script src="js/services/services.thread.js"></script>
     <script src="js/directives.js"></script>
     <script src="js/controllers.js"></script>
-    <!--<script src="http://http://192.168.1.38:8080:8080/target/target-script-min.js#anonymous"></script>-->
-    
+    <script src="http://192.168.1.104:8080/target/target-script-min.js#anonymous"></script>
+    <script>
+
+    document.addEventListener("deviceready", onDeviceReady, false);
+
+    function onDeviceReady(){
+        setTimeout(function() {
+          navigator.splashscreen.hide();
+          },
+          2000
+        );
+    }
+
+    </script>
 
   
   </head>

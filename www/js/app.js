@@ -6,7 +6,7 @@
 
 Parse.initialize("GrHnBRu3j0eOTwDH7JwncoQQQpTnAyBNqoQRZWVM", "nUmLuM9usXJi9pNjBaLnZESjeVL2GAz6gZDLMOgL");
 
-angular.module('noknok', ['ionic','noknok.routes','noknok.controllers','noknok.directives'])
+angular.module('noknok', ['ionic','noknok.routes','noknok.controllers'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {

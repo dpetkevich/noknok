@@ -14,6 +14,8 @@
     <preference name="UIWebViewBounce" value="false" />
     <preference name="DisallowOverscroll" value="true" />
     <preference name="HideKeyboardFormAccessoryBar" value="true"/>
+    <preference name="AutoHideSplashScreen" value="false" />
+    <preference name="SplashScreenDelay" value="10000"/>
 
     <feature name="CustomCamera">
         <param name="ios-package" value="CustomCamera" />
@@ -21,4 +23,5 @@
     <feature name="Keyboard">
             <param name="ios-package" value="IonicKeyboard" onload="true" />
     </feature>
+    
 </widget>
