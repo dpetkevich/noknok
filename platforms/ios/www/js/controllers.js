@@ -1,6 +1,6 @@
-angular.module('noknok.controllers', [])
+angular.module('noknok.controllers', ['noknok.services.thread','noknok.services.camera'])
 
-.controller('inboxController', function($scope,$state,$rootScope) {
+.controller('inboxController', function($scope,$state,thread,camera) {
 	/*
   $scope.threads = [
     { sender:7136645896, recepient:2812362023, read:false, known:false, sentAs:'Wenzel Juice', senderName:'', recipientName:''},
@@ -10,10 +10,50 @@ angular.module('noknok.controllers', [])
     { sender:2812362023, recepient:7136645896, read:true, known:true, sentAs:"Something", senderName:'', recipientName:'Kevin Ho' },
     { sender:7136645896, recepient:2812362023, read:true, known:true, sentAs:"StrongBad", senderName:'Pat Blute', recipientName:'' },
   ];
-*/
+	*/
 
 
-  $scope.threads = [];
+	$scope.threads = [];
+
+	/*
+	threads.getInbox.then(onSuccess,onError);
+
+	function onSuccess(results){
+		for (var i=0;i<results.length;i++)
+  			{
+  				$scope.threads[i]={ 
+  					id:results[i].id, 
+  					sender:results[i].get('sender').get('phone'), 
+  					recipient:results[i].get('recipient'), 
+  					read:results[i].get('read'), 
+  					known: results[i].get('known'), 
+  					sentAs:results[i].get('sentAs'), 
+  					senderName: results[i].get('senderName'), 
+  					recipientName: results[i].get('recipientName')
+  				}
+  			}
+
+	}
+	function onError(error){
+		alert('There was an error:' + error);
+	}
+	*/
+
+	$scope.getPhoto = function(){
+		camera.capturePhoto()
+              .then(function(imageSrc){
+                 thread.draft.imageURL=imageSrc;
+                 $state.go('capture')
+              },
+              function(error){
+                alert('error was '+error);
+              })	
+	}
+
+
+
+
+/*
   var received = new Parse.Query("Thread");
   var sent = new Parse.Query("Thread");
 
@@ -44,7 +84,7 @@ angular.module('noknok.controllers', [])
   									   read==false 
 
   				send new photos -  read=true
-				*/
+				
   			}	
   			$scope.$apply()
   		},
@@ -52,23 +92,15 @@ angular.module('noknok.controllers', [])
     		// There was an error.
   		}
 	});
+	*/
 })
 
 
-.controller('captureController',function($scope,$rootScope,$state,$document,camera){
+.controller('captureController',function($scope,$rootScope,$state,thread){
 
-	$scope.imageSrc='';
+	$scope.imageSrc=thread.draft.imageURL;
 	
-	$scope.getPhoto = function(){
-		 camera.getPhoto()
-            .then(function(imageSrc){
-               $scope.imageSrc=imageSrc;
-               $scope.$apply()
-            },
-            function(error){
-              alert('error was '+error);
-            })
-    };
+	
 	
 
 })
@@ -229,10 +261,6 @@ angular.module('noknok.controllers', [])
     			alert('invalid credentials')
   			}
 		});
-
-
-
-
 	}
   
 

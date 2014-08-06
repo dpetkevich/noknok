@@ -1,3 +1,4 @@
+/*
 angular.module('noknok.directives', ['noknok.services.camera'])
 
 .directive('camera', function(camera) {
@@ -19,10 +20,9 @@ angular.module('noknok.directives', ['noknok.services.camera'])
                 alert('error was '+error);
               })
         }
-        getPhoto()
-
 
       }
 
    };
 });
+*/

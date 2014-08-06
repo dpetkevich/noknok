@@ -1,11 +1,17 @@
-angular.module('noknok.services.threads', [])
+angular.module('noknok.services.thread', [])
 
-.factory('threads', function($q){
-
+.factory('thread', function($q){
+  var service={
+    draft:
+      {
+        imageURL:''
+      }
+  };
   var deferred=$q.defer();
  
   //instantiate query variables
-  var received, sent = new Parse.Query("Thread");
+  var received = new Parse.Query("Thread");
+  var sent = new Parse.Query("Thread");
 
   //set query filters
   received.equalTo("recipient",'2812362023');
@@ -14,7 +20,7 @@ angular.module('noknok.services.threads', [])
   // instantiate compound query
   var mainQuery = Parse.Query.or(received, sent); 
 
-  // compound query 
+  // BEGIN: getInbox
 
   service.getInbox= function(){
     mainQuery.find(onSuccess,onError);
@@ -31,5 +37,10 @@ angular.module('noknok.services.threads', [])
     deferred.resolve(error)
   }
 
+  // END getInbox
+
+  // BEGIN: 
+
+  return service
 
 });
