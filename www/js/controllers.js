@@ -99,23 +99,25 @@ angular.module('noknok.controllers', ['noknok.services.thread','noknok.services.
 
 .controller('captureController',function($scope,$rootScope,$state,thread,camera){
 	
+	/*
 	$scope.$on('retakePhoto',function(){
-              $scope.imageSrc=''
-              $scope.$apply()
-              getPhoto()
-    });
+        getPhoto()
 
-    getPhoto = function(){
+    });
+	*/
+    $scope.getPhoto = function(){
       camera.capturePhoto()
-          .then(function(imageSrc){
-             $scope.imageSrc=imageSrc;
+          .then(function(imageURL){
+             $scope.imageSrc=imageURL;
           },
           function(error){
             alert('error was '+error);
           })
     }
 
-    getPhoto()
+   
+
+    $scope.getPhoto()
 	
 })
 

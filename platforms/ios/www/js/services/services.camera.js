@@ -2,8 +2,10 @@ angular.module('noknok.services.camera', [])
 
 .factory('camera', function($q,$state){
   var service={};
-  var deferred=$q.defer();
+  var deferred= $q.defer();
 
+  alert('deferred.promise' + deferred.promise)
+  
   service.capturePhoto = function(){
       navigator.CustomCamera.getPicture(
         captureSuccess,
@@ -13,10 +15,10 @@ angular.module('noknok.services.camera', [])
   }
 
   function captureSuccess(imageURL) {
-          //alert('imageURl is' + imageURL)
           if(imageURL != ''){
             var imageSrc=imageURL;
             deferred.resolve(imageSrc)
+
           }
           else{
             $state.go('inbox')
@@ -28,6 +30,8 @@ angular.module('noknok.services.camera', [])
 	  alert('there was an error')
 	  deferred.reject(msg);
 	}
+
+ 
 
  return service;
 

@@ -1,27 +1,11 @@
 <ion-view title='capture' drag-content="false">
-	<!--
-	<ion-header-bar style='background:none;' >
-		<div class="buttons">
-		    <button class="button button-icon icon ion-close" style='color:white;' on-tap="$broadcast('retakePhoto')"></button>
-		</div>
-	</ion-header-bar>
-	-->
-	
 	<div class="bar bar-header" style='position:absolute;left:0px;top:0px;z-index:2;background:none;'>
-  		<button class="button button-icon icon ion-close" style='color:white;' on-tap="$broadcast('retakePhoto')"></button>
+  		<button class="button button-icon icon ion-close" style='color:white;' on-tap="getPhoto()"></button>
   		<a class="button button-icon icon ion-checkmark" style='color:white;' href='#/sendTo'></a>
 	</div>
 	
-	<ion-content  has-footer='true' scroll='false' style='z-index:0'>
-		<img id='myImage' ng-src='{{imageSrc}}' ng-model='imageSrc' style='width:427px;position:relative;left:-12.5%;'></img>
+	<ion-content  has-footer='true' scroll='false' style='z-index:0;background:black;'>
+		<img id='myImage' ng-src='{{imageSrc}}' style='width:427px;position:relative;left:-12.5%;'></img>
 		
 	</ion-content>
-	<!--<ion-footer-bar style='background:black;' >
-
-	  <div class="buttons pull-right">
-	    <a class="button button-icon icon ion-arrow-right-a " style='color:white;' href='#/sendTo'></a>
-	  </div>
-	</ion-footer-bar>
-	position:absolute;left:0px;top:0px;height:50px;width:480px;
--->
 </ion-view>
