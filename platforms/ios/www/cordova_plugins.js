@@ -48,6 +48,13 @@ module.exports = [
         "clobbers": [
             "navigator.splashscreen"
         ]
+    },
+    {
+        "file": "plugins/at.modalog.cordova.plugin.cache/www/Cache.js",
+        "id": "at.modalog.cordova.plugin.cache.Cache",
+        "clobbers": [
+            "cache"
+        ]
     }
 ];
 module.exports.metadata = 
@@ -56,7 +63,8 @@ module.exports.metadata =
     "org.apache.cordova.camera": "0.3.0",
     "com.example.custom-camera": "0.0.1",
     "com.ionic.keyboard": "1.0.2",
-    "org.apache.cordova.splashscreen": "0.3.1"
+    "org.apache.cordova.splashscreen": "0.3.1",
+    "at.modalog.cordova.plugin.cache": "1.0.0"
 }
 // BOTTOM OF METADATA
 });

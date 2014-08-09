@@ -97,27 +97,43 @@ angular.module('noknok.controllers', ['noknok.services.thread','noknok.services.
 })
 
 
-.controller('captureController',function($scope,$rootScope,$state,thread,camera){
+.controller('captureController',function($scope,$rootScope,$state,thread){
 	
-	/*
-	$scope.$on('retakePhoto',function(){
-        getPhoto()
+	$scope.loaded=false;
 
-    });
-	*/
     $scope.getPhoto = function(){
+
+    	$scope.loaded=false;
+    	
+    	alert('load state is '+ $scope.loaded);
+    	navigator.CustomCamera.getPicture(
+        	function(imageURL){
+        		var random = Math.random()*100;
+
+        		$scope.$apply(
+        			function(){
+        				$scope.imageSrc=imageURL+"?cb="+random;
+        				$scope.loaded=true;
+        			});
+        	},
+        	function(error){
+        		alert('error was '+error);
+        	}
+
+      	); 
+
+
+    /*
       camera.capturePhoto()
           .then(function(imageURL){
+          	 alert("iamge")
              $scope.imageSrc=imageURL;
-             alert('imagesrc is ' + $scope.imageSrc)
           },
           function(error){
             alert('error was '+error);
           })
+    */
     }
-
-   
-
     $scope.getPhoto()
 	
 })

@@ -53,26 +53,45 @@
     [self.plugin imageCanceled];
 }
 
+
+    
+
 // Delegate method.  UIImagePickerController will call this method as soon as the image captured above is ready to be processed.  This is also like an event callback in JavaScript.
 -(void) imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+    
+    
     
 	// Get a reference to the captured image
 	UIImage* image = [info objectForKey:UIImagePickerControllerOriginalImage];
     
+    
 	// Get a file path to save the JPEG
-	NSArray* paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-	NSString* documentsDirectory = [paths objectAtIndex:0];
+	//NSArray* paths = NSSearchPathForDirectoriesInDomains(NSTemporaryDirectory(), NSUserDomainMask, YES);
+	//NSString* documentsDirectory = [paths objectAtIndex:0];
+    NSString* documentsDirectory = NSTemporaryDirectory();
 	NSString* filename = @"test.jpg";
 	NSString* imagePath = [documentsDirectory stringByAppendingPathComponent:filename];
+    /*
+    //delete previous item
+    NSArray* tmpDirectory = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:NSTemporaryDirectory() error:NULL];
+    for (NSString *file in tmpDirectory) {
+        [[NSFileManager defaultManager] removeItemAtPath:imagePath error:NULL];
+    }
+    */
     
 	// Get the image data (blocking; around 1 second)
 	NSData* imageData = UIImageJPEGRepresentation(image, 0.5);
     
+    
 	// Write the data to the file
 	[imageData writeToFile:imagePath atomically:YES];
     
+    
 	// Tell the plugin class that we're finished processing the image
 	[self.plugin capturedImageWithPath:imagePath];
+    
+    
+    
 }
 
 @end

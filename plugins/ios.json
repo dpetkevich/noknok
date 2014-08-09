@@ -47,6 +47,10 @@
                         {
                             "xml": "<feature name=\"SplashScreen\"><param name=\"ios-package\" value=\"CDVSplashScreen\" /><param name=\"onload\" value=\"true\" /></feature>",
                             "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"Cache\"><param name=\"ios-package\" value=\"Cache\" /></feature>",
+                            "count": 1
                         }
                     ],
                     "plugins": [
@@ -137,6 +141,9 @@
             "PACKAGE_NAME": "NokNok"
         },
         "org.apache.cordova.splashscreen": {
+            "PACKAGE_NAME": "NokNok"
+        },
+        "at.modalog.cordova.plugin.cache": {
             "PACKAGE_NAME": "NokNok"
         }
     },
