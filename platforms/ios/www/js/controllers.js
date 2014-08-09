@@ -105,16 +105,22 @@ angular.module('noknok.controllers', ['noknok.services.thread','noknok.services.
 
     	$scope.loaded=false;
     	
-    	alert('load state is '+ $scope.loaded);
     	navigator.CustomCamera.getPicture(
         	function(imageURL){
-        		var random = Math.random()*100;
+        		if(imageURL !=''){
+	        		var random = Math.random()*100;
 
-        		$scope.$apply(
-        			function(){
-        				$scope.imageSrc=imageURL+"?cb="+random;
-        				$scope.loaded=true;
-        			});
+	        		$scope.$apply(
+	        			function(){
+	        				$scope.imageSrc=imageURL+"?cb="+random;
+	        				$scope.loaded=true;
+	        			});
+        		}
+        		else{
+        			$scope.loaded=false;
+        			$state.go('inbox')
+        		}
+
         	},
         	function(error){
         		alert('error was '+error);
