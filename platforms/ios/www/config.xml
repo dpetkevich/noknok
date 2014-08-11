@@ -23,5 +23,7 @@
     <feature name="Keyboard">
             <param name="ios-package" value="IonicKeyboard" onload="true" />
     </feature>
-    
+    <feature name="Contacts">
+        <param name="ios-package" value="CDVContacts" />
+    </feature>
 </widget>

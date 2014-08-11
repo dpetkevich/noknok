@@ -51,6 +51,10 @@
                         {
                             "xml": "<feature name=\"Cache\"><param name=\"ios-package\" value=\"Cache\" /></feature>",
                             "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"Contacts\"><param name=\"ios-package\" value=\"CDVContacts\" /></feature>",
+                            "count": 1
                         }
                     ],
                     "plugins": [
@@ -78,7 +82,7 @@
                     "CoreGraphics.framework": [
                         {
                             "xml": "false",
-                            "count": 2
+                            "count": 3
                         }
                     ],
                     "AssetsLibrary.framework": [
@@ -108,6 +112,18 @@
                     "CoreVideo.framework": [
                         {
                             "xml": "false",
+                            "count": 1
+                        }
+                    ],
+                    "AddressBook.framework": [
+                        {
+                            "xml": "true",
+                            "count": 1
+                        }
+                    ],
+                    "AddressBookUI.framework": [
+                        {
+                            "xml": "true",
                             "count": 1
                         }
                     ]
@@ -144,6 +160,9 @@
             "PACKAGE_NAME": "NokNok"
         },
         "at.modalog.cordova.plugin.cache": {
+            "PACKAGE_NAME": "NokNok"
+        },
+        "org.apache.cordova.contacts": {
             "PACKAGE_NAME": "NokNok"
         }
     },

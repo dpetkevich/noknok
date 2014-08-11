@@ -147,6 +147,10 @@ angular.module('noknok.controllers', ['noknok.services.thread','noknok.services.
 .controller('sendToController',function($scope,$filter,$rootScope,$state){
 
 
+	$scope.filterFunction = function(element){
+		 return element.name.formatted.match(/^[a-zA-Z0-9\s]{1}.*$/) ? true : false;
+	}
+
 	function onSuccess(contacts) {
 	    $rootScope.contacts=contacts
 	    $rootScope.$apply();

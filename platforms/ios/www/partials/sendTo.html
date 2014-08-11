@@ -15,8 +15,8 @@
 		  	<input type="text" ng-model='name' placeholder="Search">
 		  </label>
 	  		
-		  	<ion-checkbox class='item item-checkbox' ng-change="selected(contact)" collection-repeat="contact in contacts | filter:name | orderBy:'displayName'" collection-item-width="320" collection-item-height="51" ng-model='contact.contactBox' ng-init='contact.contactBox=false' style='left:0;right:0;'>
-		  			{{contact.displayName}}
+		  	<ion-checkbox class='item item-checkbox' ng-change="selected(contact)" collection-repeat="contact in contacts | filter: filterFunction | orderBy:'name.formatted'" collection-item-width="320" collection-item-height="51" ng-model='contact.contactBox' ng-init='contact.contactBox=false' style='left:0;right:0;'>
+		  			{{contact.name.formatted}}
 		  	</ion-checkbox>
 
 	  </ion-list>
