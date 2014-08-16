@@ -38,62 +38,7 @@ angular.module('noknok.controllers', ['noknok.services.thread','noknok.services.
 		alert('There was an error:' + error);
 	}
 	
-	/*
-	$scope.getPhoto = function(){
-		camera.capturePhoto()
-              .then(function(imageSrc){
-              	 $state.go('capture')
-
-                 thread.draft.imageURL=imageSrc;
-              },
-              function(error){
-                alert('error was '+error);
-              })	
-	}
-	*/
-
-
-
-/*
-  var received = new Parse.Query("Thread");
-  var sent = new Parse.Query("Thread");
-
-  received.equalTo("recipient",'2812362023');
-
-  sent.equalTo('sender',Parse.User.current())
-
-
-  var mainQuery = Parse.Query.or(received, sent);
 	
-	mainQuery.find({
-  		success: function(results) {
-
-  			for (var i=0;i<results.length;i++)
-  			{
-  				$scope.threads[i]={ id:results[i].id, sender:results[i].get('sender').get('phone'), recipient:results[i].get('recipient'), read:results[i].get('read'), know: results[i].get('known'), sentAs:results[i].get('sentAs'), senderName: results[i].get('senderName'), recipientName: results[i].get('recipientName')}
-  				if (results[i].get('read')==false)
-  				{
-  					$scope.threads[i].link='#/guess/'+results[i].id;
-
-  				}
-  				else{
-  					$scope.threads[i].link='#/capture/'+results[i].id;
-  				}
-  				//page types
-  				/*
-  				view incoming photo -  read==false
-  									   read==false 
-
-  				send new photos -  read=true
-				
-  			}	
-  			$scope.$apply()
-  		},
-  		error: function(error) {
-    		// There was an error.
-  		}
-	});
-	*/
 })
 
 
@@ -113,6 +58,7 @@ angular.module('noknok.controllers', ['noknok.services.thread','noknok.services.
 	        		$scope.$apply(
 	        			function(){
 	        				$scope.imageSrc=imageURL+"?cb="+random;
+	        				thread.draft.imageURL=$scope.imageSrc
 	        				$scope.loaded=true;
 	        			});
         		}
@@ -144,7 +90,7 @@ angular.module('noknok.controllers', ['noknok.services.thread','noknok.services.
 	
 })
 
-.controller('sendToController',function($scope,$filter,$rootScope,$state){
+.controller('sendToController',function($scope,$filter,$rootScope,$state,thread){
 
 
 	$scope.filterFunction = function(element){
@@ -189,20 +135,27 @@ angular.module('noknok.controllers', ['noknok.services.thread','noknok.services.
     };
 
     $scope.createThread = function(contacts){
-
 		var selectedContacts=$filter('filter')(contacts,{contactBox:true});
+		var reader = new FileReader();
+
 		for(var i=0;i<selectedContacts.length;i++)
 		{	
 			var Thread = Parse.Object.extend("Thread");
 			var thread = new Thread();
-			
-			var image = new Parse.File('photo.jpg', { base64: $rootScope.data });
+
+			var data = reader.readAsDataURL(thread.draft.imageURL);
+
+			alert(data)
+
+			/*
+			var image = new Parse.File('photo.jpg', { base64:  });
 
    		    image.save().then(function() {
    		    	alert('image saved')
 			}, function(error) {
 				alert(error + 'not saved');
 			});
+*/
 			
 			thread.set('sender',Parse.User.current())
 			thread.set('recipient', selectedContacts[i].phoneNumbers[0].value)
@@ -210,8 +163,8 @@ angular.module('noknok.controllers', ['noknok.services.thread','noknok.services.
 			thread.set('known',false)
 			thread.set('sentAs','Mr. Higgins')
 			thread.set('senderName','')
-			thread.set('recipientName',selectedContacts[i].displayName)
-			thread.set('image',image)
+			thread.set('recipientName',selectedContacts[i].name.formatted)
+			//thread.set('image',image)
 
 
  
